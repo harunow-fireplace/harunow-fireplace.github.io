@@ -1,0 +1,150 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+header .icons span:hover {
+    background: #f2f2f2;
+}
+
+header .current-date {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+/* .calendar ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+}
+
+.calendar .days {
+    margin-bottom: 20px;
+}
+
+.calendar li {
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+
+.calendar .weeks li {
+    font-weight: 500;
+    cursor: default;
+}
+
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 15px;
+}
+
+.days li.inactive {
+    color: #aaa;
+}
+
+.days li.active {
+    color: #ffffff;
+}
+
+.days li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+    background: #3cd9fc;
+}
+
+.days li:not(.active):hover::before {
+    background: #e6e6e6;
+}
+
+.days li.active:hover::before {
+    background: #c4c4c4;
+}
+
+.days li.holiday::before {
+    background: #DFCCFB;
+} */
+
+.cal-month,
+.cal-days,
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+}
+.cal-month-name {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  text-align: center;
+}
+.cal-weekday,
+.cal-btn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0;
+}
+.cal-btn:not([disabled]) {
+  font-weight: 500;
+  color: var(--bs-emphasis-color);
+}
+.cal-btn:hover,
+.cal-btn:focus {
+  background-color: var(--bs-secondary-bg);
+}
+.cal-btn[disabled] {
+  border: 0;
+  opacity: .5;
+}
+
+.public {
+  background: #A3C0E1;
+}
+
+.holiday {
+  background: #4FB0C6;
+}
+
+.changeable {
+  background: #81b29a;
+}
+
+.cal-info {
+  padding: 20px 0px 10px 0px;
+}
+
+.w-220px {
+  width: 220px;
+}
+
+.w-280px {
+  width: 280px;
+}
+
+.w-340px {
+  width: 340px;
+}
+
+.opacity-10 {
+  opacity: .1;
+}

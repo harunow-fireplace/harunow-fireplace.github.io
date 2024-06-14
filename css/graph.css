@@ -1,0 +1,84 @@
+.chart {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    max-width: 700px;
+    background-image: linear-gradient(bottom, rgba(0, 0, 0, 0.1) 2%, transparent 2%);
+    background-size: 100% 50px;
+    background-position: left top;
+}
+
+.chart li {
+    position: relative;
+    display: table-cell;
+    vertical-align: bottom;
+    height: 200px;
+}
+
+.chart span {
+    margin: 0 1em;
+    display: block;
+    background: rgba(209, 236, 250, .75);
+    animation: draw 1s ease-in-out;
+}
+
+.chart span:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    display: inline-block;
+    text-align: center;
+    content: attr(name);
+}
+
+@keyframes draw {
+    0% {
+        height: 0;
+    }
+}
+
+.pollChart {
+    display: table;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    background-size: 100% 50px;
+    background-position: left top;
+    padding-bottom: 0;
+}
+
+.pollChart li {
+    position: relative;
+    display: flex;
+    vertical-align: flex-end;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.pollChart span {
+    display: block;
+    background: rgba(240, 246, 249, 0.75);
+    animation: drawX 1s ease-in-out;
+
+}
+
+.pollChart span:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10;
+    display: inline-block;
+    text-align: center;
+    content: attr(name);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@keyframes drawX {
+    0% {
+        width: 0;
+    }
+}

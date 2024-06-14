@@ -1,0 +1,17 @@
+/* styles.css */
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 50%;
+}
+
+.tooltip {
+    z-index: 9999; /* Adjust the value as needed */
+    position: absolute; /* Ensure proper positioning */
+}

@@ -1,0 +1,327 @@
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+}
+
+.text-bg-red{
+  color: #fff !important;
+  background-color: #EADFB4;
+}
+.text-bg-orange{
+  color: #fff !important;
+  background-color: #F6995C;
+}
+.text-bg-yellow{
+  color: #fff !important;
+  background-color: #51829B;
+}
+.text-bg-green{
+  color: #fff !important;
+  background-color: #9BB0C1;
+}
+.text-bg-blue{
+  color: #fff !important;
+  background-color: #5F5D9C;
+}
+.text-bg-purple{
+  color: #fff !important;
+  background-color: #6196A6;
+}
+.text-bg-pink{
+  color: #fff !important;
+  background-color: #A4CE95;
+}
+
+.badge.selected {
+  border: 2px solid darkslategray; /* Add border styles */
+}
+
+.badge {
+  cursor: pointer;
+}
+
+#schoolPic {
+  background-image: url(../images/99425936-8b35-45fc-96a9-516bee83e88b.jpg);
+  background-position: bottom left;
+  height: 330px;
+}
+
+.harunowImage {
+  height: 200px;
+}
+
+.placeholder-bg {
+  background-color: #fcba03;
+}
+
+.pollCard-bg {
+  background-color: #9BCDD2;
+}
+
+.carousel-control-next {
+  right: -20px;
+}
+
+.carousel-control-prev {
+  left: -20px;
+}
+
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  color: #000;
+  background-color: #9BCDD2;
+}
+
+.icon-yellow {
+  color: #ffbf00;
+  /* Replace "red" with your desired color value */
+}
+
+
+#fileDisplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#fileDisplay img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.icon-width {
+  width: 32px;
+}
+
+.bi {
+  width: 1rem;
+  height: 1rem;
+}
+
+/*
+   * Sidebar
+   */
+
+@media (min-width: 768px) {
+  .sidebar .offcanvas-lg {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
+  }
+
+  .navbar-search {
+    display: block;
+  }
+}
+
+.sidebar .nav-link {
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.sidebar .nav-link.active {
+  background-color: #1e81b0;
+  color: #ffffff;
+}
+
+.nav-link {
+  color: #154c79;
+  /* Change to your desired color */
+}
+
+.nav-link:hover {
+  background-color: #76b5c5;
+  /* Change to your desired background color */
+  color: #ffffff;
+  /* Change to your desired text color */
+}
+
+.sidebar .nav-link.active:hover {
+  color: #ffffff;
+}
+
+
+.sidebar-heading {
+  font-size: .75rem;
+}
+
+/*
+   * Navbar
+   */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.b-example-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.btn-bd-primary {
+  --bd-violet-bg: #9D44C0;
+  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #836096;
+  --bs-btn-hover-border-color: #9D44C0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+
+.bd-mode-toggle {
+  z-index: 1500;
+}
+
+
+.link-purple {
+  color: #836096;
+  text-decoration: none;
+}
+
+.btn-outline-harunow {
+  --bs-btn-color: #6e44ff;
+  --bs-btn-border-color: #6e44ff;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #6e44ff;
+  --bs-btn-hover-border-color: #6e44ff;
+  --bs-btn-focus-shadow-rgb: 220,53,69;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #6e44ff;
+  --bs-btn-active-border-color: #6e44ff;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #6e44ff;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #6e44ff;
+  --bs-gradient: none;
+}
+
+/* Define the styles for the square thumbnails */
+.thumbnail {
+  width: 100px; /* Set a fixed width */
+  height: 100px; /* Set a fixed height to make it square */
+  overflow: hidden; /* Hide overflowing content if any */
+  position: relative; /* Position relative for absolute positioning of the image */
+}
+
+/* Define the styles for the image within the square container */
+.thumbnail img {
+  width: 100%; /* Make the image fill the entire container */
+  height: 100%; /* Make the image fill the entire container */
+  object-fit: cover; /* Crop the image to cover the container */
+  object-position: center; /* Center the image within the container */
+  transition: transform 0.2s ease; /* Add a smooth transition effect */
+}
+
+/* Define the hover effect to enlarge the thumbnail */
+.thumbnail:hover img {
+  transform: scale(1.3); /* Enlarge the image on hover */
+}
+
+.img-file-display {
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+.carouselAutoplaying {
+  height: 350px; /* Adjust the height as needed */
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+  position: relative;
+}
+
+.carousel-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.post-control-prev {
+  left: -12px;
+}
+
+.post-control-next {
+  right: -12px;
+}

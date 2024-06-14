@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Harunow</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Serverless web application example">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="../css/graph.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/index.css" rel="stylesheet">
+    <link href="../css/card.css" rel="stylesheet">
+</head>
+
+<body class="bg-body-tertiary">
+
+    <div id="addButton" class="position-fixed bottom-0 end-0 mb-4 me-3 bd-mode-toggle">
+
+    </div>
+
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Harunow</a>
+
+        <ul class="navbar-nav flex-row d-md-none">
+            <li class="nav-item text-nowrap">
+                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+            </li>
+        </ul>
+
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body">
+                <div class="offcanvas-md offcanvas-end bg-body" tabindex="-1" id="sidebarMenu"
+                    aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="sidebarMenuLabel">Harunow</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                        <ul id="dashboard-nav" class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-speedometer2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+                                        <path fill-rule="evenodd"
+                                            d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
+                                    </svg>
+                                    Dashboard
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/notes/">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                        <path
+                                            d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                                    </svg>
+                                    Notes
+                                </a>
+                                <a class="nav-link active d-flex align-items-center gap-2" aria-current="page"
+                                    href="/posts/">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-postage-heart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.5 1a1 1 0 0 0 1-1h1a1 1 0 0 0 2 0h1a1 1 0 0 0 2 0h1a1 1 0 1 0 2 0H15v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1h-1.5a1 1 0 1 0-2 0h-1a1 1 0 1 0-2 0h-1a1 1 0 1 0-2 0h-1a1 1 0 1 0-2 0H1v-1a1 1 0 1 0 0-2v-1a1 1 0 1 0 0-2V9a1 1 0 1 0 0-2V6a1 1 0 0 0 0-2V3a1 1 0 0 0 0-2V0h1.5a1 1 0 0 0 1 1ZM3 3v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z" />
+                                        <path d="M8 11C2.175 7.236 6.336 4.31 8 5.982 9.664 4.309 13.825 7.236 8 11Z" />
+                                    </svg>
+                                    Posts
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/teams/">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+                                        <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z"/>
+                                        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+                                      </svg>
+                                    Teams
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="/votes/">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-clipboard-data" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z" />
+                                        <path
+                                            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                        <path
+                                            d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                    </svg>
+                                    Votes
+                                </a>
+                            </li>
+                        </ul>
+                        <hr class="my-3">
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item">
+                                <a class="logoutButton nav-link d-flex align-items-center gap-2" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                    </svg>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2"><i class="bi bi-postage-heart me-2"></i>Posts</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1 me-2">
+                            <svg class="bi"><use xlink:href="#calendar3"></use></svg>
+                            This week
+                          </button> -->
+                        <div class="btn-group" id="postAction">
+                        </div>
+
+                    </div>
+                </div>
+
+                <section id="updates" class="py-4">
+                    <div class="row grid">
+
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+    <!-- Create Post Modal -->
+    <div class="modal fade" id="postModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="postModalTitle" aria-hidden="true">
+        <div class="modal-dialog text-dark">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="postModalTitle"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info py-2" role="alert">
+                        Teachers can now upload up to 10 images and students can upload up to 5 images
+                    </div>
+                    <div class="container pb-3">
+                        <div class="row">
+                            <div id="fileDisplay" class="d-flex flex-wrap">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control form-control-sm" id="fileInput" type="file" accept="image/jpeg, image/jpg"
+                            multiple>
+                    </div>
+                    <div class="row mb-3 input-group">
+                        <label for="titleInput" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10 has-validation">
+                            <input type="text" class="form-control" id="titleInput" />
+                            <div class="invalid-feedback text-start">Enter a title</div>
+                        </div>
+                    </div>
+                    <div class="row mb-3 input-group">
+                        <label for="contentInput" class="col-sm-2 col-form-label">Content</label>
+                        <div class="col-sm-10 has-validation">
+                            <textarea class="form-control" id="contentInput" rows="3"></textarea>
+                            <div class="invalid-feedback text-start">Content shouldn't be empty</div>
+                        </div>
+                    </div>
+                    <div class="container mt-3">
+                        <div class="form-check d-flex align-items-center ml-3">
+                          <input class="form-check-input me-2" type="checkbox" value="" id="privateChecked">
+                          <label class="form-check-label" for="privateChecked">
+                            Private
+                          </label>
+                    
+                          <!-- Tooltip Button -->
+                          <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Private posts are only visible to students and teachers">
+                            <i class="bi bi-info-circle-fill"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                </div>
+                <div id="postModalFooter" class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Comments Modal -->
+    <div class="modal fade" id="commentsModal" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="commentsModalTitle"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container" id="commentContainer">
+                        <div class="form-floating mb-2">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="commentTextarea"
+                                style="height: 100px"></textarea>
+                            <label for="commentTextarea">Comment</label>
+                        </div>
+                        <div class="d-flex justify-content-end pt-2">
+                            <button id="addComment" type="button" class="btn btn-primary">Add Comment</button>
+                        </div>
+                    </div>
+                    <div id="commentsList" class="list-group py-3 px-3">
+
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/vendor/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="../js/vendor/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="../js/vendor/aws-sdk.min.js"></script>
+    <script src="../js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/aws-config.js"></script>
+    <script src="../js/cognito-auth.js"></script>
+    <script src="../js/posts.js"></script>
+</body>
+
+</html>

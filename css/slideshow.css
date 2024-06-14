@@ -1,0 +1,18 @@
+.carousel-control-prev {
+    left: -100px;
+}
+
+.carousel-control-next {
+    right: -100px;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+#largeImage {
+    max-height: 80vh; /* Adjust the value as needed */
+    display: block; /* Ensure the image is a block-level element */
+    margin: 0 auto; /* Center the image horizontally */
+}

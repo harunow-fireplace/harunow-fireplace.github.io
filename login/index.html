@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="../css/index.css" rel="stylesheet">
+
+</head>
+
+<body class="gradient-custom">
+    <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Harunow</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02"
+                aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbars">
+                <ul class="navbar-nav me-auto">
+
+                </ul>
+                <a class="btn btn-outline-light" href="/login">Login</a>
+            </div>
+        </div>
+    </nav>
+    <div id="toastContainer" aria-live="polite" aria-atomic="true"
+        style="position: fixed; top: 70px; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+        <div id="toastMessage" class="toast align-items-center border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <div id="verifyAlert" class="container px-5 mt-2 h-100" style="display:none;">
+        <div  class="alert alert-success d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+              </svg>
+            <div class="ps-2">
+                Registration successful. Please check your email inbox or spam folder for your verification.
+            </div>
+          </div>
+        </div>
+    <section>
+        <div class="container pb-5 mt-2 h-100">
+            <div class="row pt-5 d-flex justify-content-center align-items-center h-100">
+                <div class="col-10 col-md-7 col-lg-5 col-xl-4">
+                    <div class="card bg-dark text-white py-1 px-3" style="border-radius:1rem">
+                        <form id="signinForm">
+                            <div class="card-body p-3 pb-2 text-center mb-3">
+                                <h2 class="fw-bold mb-3 text-uppercase">Login</h2>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="usernameInputSignin"
+                                    placeholder="Username/Email" required>
+                                <label htmlFor="usernameInputSignin" class="text-secondary">Username/Email</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="passwordInputSignin"
+                                    placeholder="Password" pattern=".*" required>
+                                <label htmlFor="passwordInputSignin" class="text-secondary">Password</label>
+                            </div>
+                            <div class="text-center py-5">
+                                <button class="btn btn-outline-light btn-md px-5" type="submit">
+                                    Login
+                                </button>
+                                <p class="text-light pt-3"><a
+                                    class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                                    href="/login/reset-password/">Forgot Password</a></p>
+                                <p class="text-light pt-3">No Account? <a
+                                        class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                                        href="/register">Register</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/vendor/jquery-3.7.0.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="../js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/cognito-auth.js"></script>
+    <script src="../js/components.js"></script>
+</body>
+
+</html>
