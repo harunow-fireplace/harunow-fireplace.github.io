@@ -125,6 +125,15 @@ header .current-date {
   background: #4FB0C6;
 }
 
+.familynight {
+  background: #DA70D6;
+}
+
+.exam {
+  background: #F4BB44;
+}
+
+
 .changeable {
   background: #81b29a;
 }

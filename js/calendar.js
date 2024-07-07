@@ -35,7 +35,11 @@ function renderCalendar(holidays) {
             isActive = "holiday";
         } else if (holidays[aDate] && holidays[aDate][0] == 3) {
             isActive = "changeable";
-        }else {
+        } else if (holidays[aDate] && holidays[aDate][0] == 4) {
+            isActive = "exam";
+        } else if (holidays[aDate] && holidays[aDate][0] == 5) {
+            isActive = "familynight";
+        } else {
             isActive = "inactive";
         }
         liTag += `<button class="btn cal-btn" disabled="" type="button">${lastDateofLastMonth - i + 1}</button>`;
@@ -67,6 +71,18 @@ function renderCalendar(holidays) {
 
             //liTag += `<li class="${isActive}" data-toggle="tooltip" data-placement="right" title="${holidays[isDate]}" data-value="${isDate}">${i}</li>`;
         }
+        else if (holidays[isDate] && holidays[isDate][0] == 4) {
+            isActive = "exam";
+            liTag += `<button class="btn cal-btn ${isActive}" type="button">${i}</button>`;
+
+            //liTag += `<li class="${isActive}" data-toggle="tooltip" data-placement="right" title="${holidays[isDate]}" data-value="${isDate}">${i}</li>`;
+        }
+        else if (holidays[isDate] && holidays[isDate][0] == 5) {
+            isActive = "familynight";
+            liTag += `<button class="btn cal-btn ${isActive}" type="button">${i}</button>`;
+
+            //liTag += `<li class="${isActive}" data-toggle="tooltip" data-placement="right" title="${holidays[isDate]}" data-value="${isDate}">${i}</li>`;
+        }
         else if (i === date.getDate() && currMonth === new Date().getMonth()
             && currYear === new Date().getFullYear()) {
             isActive = "active";
@@ -89,7 +105,6 @@ function renderCalendar(holidays) {
     }
 
     for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
-        console.log(i - lastDayofMonth + 1);
         liTag += `<button class="btn cal-btn" disabled="" type="button">${i - lastDayofMonth + 1}</button>`;
 
         //liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
