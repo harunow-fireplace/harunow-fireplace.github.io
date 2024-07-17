@@ -1,0 +1,203 @@
+.light-background {
+  background-color: #F6F4EC;
+}
+
+.dark-background {
+  background-color: #000000;
+}
+
+.primary-background {
+  background-color: #BF4408;
+  color: #fff;
+}
+
+.primary-border {
+  border-color: #BF4408;
+}
+
+.form-control {
+  /* Firefox, Chrome, Opera */
+  background-color: #FBFAF9;
+}
+
+.secondary-background {
+  background-color: #FBF1EB;
+}
+
+.accent {
+  background-color: #F5D1B0;
+}
+
+.text-light-background {
+  background-color: #F6F4EC;
+}
+
+.heading-font {
+    font-family: 'EB Garamond';
+}
+
+.round-btn {
+  border-radius: 24px;
+  padding: 8px 24px 8px 24px;
+}
+
+.round-btn:hover{
+  background-color: #E65103;
+  color: #fff;
+}
+
+.form-check-input:checked {
+  background-color: #BF4408;
+  border-color: #BF4408;
+}
+
+.link-no-decoration {
+    text-decoration: none;
+    color: inherit;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+    width: 160px;
+    /* Adjust width as needed */
+    height: 160px;
+    /* Adjust height as needed */
+    object-fit: cover;
+}
+
+
+.galaxy-background, .stars {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+.galaxy-background {
+    width: 100%;
+    height: 100%; /* You can adjust the height as needed */
+    background: rgb(11,20,45);
+background: radial-gradient(circle, rgba(11,20,45,1) 39%, rgba(9,40,86,1) 64%, rgba(50,11,83,1) 83%, rgba(102,83,57,1) 100%);
+position: relative;
+    overflow: hidden;
+}
+.stars {
+    background-image: radial-gradient(2px 2px at 50px 200px, #eee, rgba(0, 0, 0, 0)), radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)), radial-gradient(3px 4px at 120px 40px, #ddd, rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    background-size: 250px 250px;
+    opacity: 0;
+    animation: zoom 10s infinite;
+}
+  
+  
+  .stars:nth-child(1) {
+    background-position: 50% 50%;
+    animation-delay: 0s;
+  }
+  .stars:nth-child(2) {
+    background-position: 20% 60%;
+    animation-delay: 500ms;
+  }
+  .stars:nth-child(3) {
+    background-position: -20% -30%;
+    animation-delay: 1s;
+  }
+  .stars:nth-child(4) {
+    background-position: 40% -80%;
+    animation-delay: 1500ms;
+  }
+  .stars:nth-child(5) {
+    background-position: -20% 30%;
+    animation-delay: 2s;
+  }
+  .stars:nth-child(6) {
+    background-position: 40% -80%;
+    animation-delay: 2500ms;
+  }
+  .stars:nth-child(7) {
+    background-position: -20% 30%;
+    animation-delay: 3s;
+  }
+  .stars:nth-child(8) {
+    background-position: -20% 30%;
+    animation-delay: 3500ms;
+  }
+  .stars:nth-child(9) {
+    background-position: 40% -80%;
+    animation-delay: 4s;
+  }
+  
+  @keyframes zoom {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+      animation-timing-function: ease-in;
+    } 
+    85% {
+      opacity: 1;
+      transform: scale(2.8);
+      animation-timing-function: linear;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(3.5);
+    }
+  }
+
+  .gradient-button {
+    background: linear-gradient(to right, #fff 0%, #fddd75 50%, #fff 100%);
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.5s;
+    text-decoration-line: none;
+    transition: background-position 0.5s ease;
+    background-size: 200% 200%;
+  
+}
+
+.gradient-button:hover {
+  background-position: 100% 0;
+}
+
+.event {
+  z-index: 10;
+}
+
+.location a {
+  color: transparent;
+  background: linear-gradient(to right, #FFE569 0%, #F79327 50%, #FFE569 100%);
+  background-clip: text;
+  text-decoration: none;
+  transition: background-position 0.5s ease;
+  background-size: 200% 200%;
+}
+
+.location a:hover {
+  background-position: 100% 0;
+}
+
+.location svg {
+  fill: #fff; /* White fill initially (to blend with the link's background) */
+  transition: fill 0.3s ease; /* Smooth transition for fill color */
+}
+
+.location a:hover .location svg {
+  fill: #fff; /* Adjust the fill color on hover to match the gradient's effect */
+}
+
+.carousel-indicators{
+  bottom:-48px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
