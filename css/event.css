@@ -1,5 +1,70 @@
+
+.welcome-section {
+  background-image: url('../event/images/synagogue.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.welcome-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Adjust the opacity as needed */
+  z-index: 1;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-nav .nav-link {
+  background-image: linear-gradient(
+    to right,
+    #BF4408,
+    #BF4408 50%,
+    #000000A6 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link::before {
+  content: '';
+  background: #BF4408;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  background-position: 0;
+}
+
+.navbar-nav .nav-link:hover::before {
+  width: 100%;
+} 
 .light-background {
   background-color: #F6F4EC;
+}
+
+.kbd {
+  background-color: #353535;
 }
 
 .dark-background {
@@ -28,12 +93,26 @@
   background-color: #F5D1B0;
 }
 
+.green {
+  background-color: #C6E2B3;
+}
+
+button {
+  color: #E2725B;
+  /* Terracotta */
+}
+
+button:hover {
+  color: #D25A47;
+  /* Darker terracotta on hover */
+}
+
 .text-light-background {
   background-color: #F6F4EC;
 }
 
 .heading-font {
-    font-family: 'EB Garamond';
+  font-family: 'EB Garamond';
 }
 
 .round-btn {
@@ -41,7 +120,7 @@
   padding: 8px 24px 8px 24px;
 }
 
-.round-btn:hover{
+.round-btn:hover {
   background-color: #E65103;
   color: #fff;
 }
@@ -52,114 +131,127 @@
 }
 
 .link-no-decoration {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 .rounded-circle {
-    border-radius: 50%;
-    width: 160px;
-    /* Adjust width as needed */
-    height: 160px;
-    /* Adjust height as needed */
-    object-fit: cover;
+  border-radius: 50%;
+  width: 160px;
+  /* Adjust width as needed */
+  height: 160px;
+  /* Adjust height as needed */
+  object-fit: cover;
 }
 
 
-.galaxy-background, .stars {
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+.galaxy-background,
+.stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 .galaxy-background {
-    width: 100%;
-    height: 100%; /* You can adjust the height as needed */
-    background: rgb(11,20,45);
-background: radial-gradient(circle, rgba(11,20,45,1) 39%, rgba(9,40,86,1) 64%, rgba(50,11,83,1) 83%, rgba(102,83,57,1) 100%);
-position: relative;
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  /* You can adjust the height as needed */
+  background: rgb(11, 20, 45);
+  background: radial-gradient(circle, rgba(11, 20, 45, 1) 39%, rgba(9, 40, 86, 1) 64%, rgba(50, 11, 83, 1) 83%, rgba(102, 83, 57, 1) 100%);
+  position: relative;
+  overflow: hidden;
 }
+
 .stars {
-    background-image: radial-gradient(2px 2px at 50px 200px, #eee, rgba(0, 0, 0, 0)), radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)), radial-gradient(3px 4px at 120px 40px, #ddd, rgba(0, 0, 0, 0));
-    background-repeat: repeat;
-    background-size: 250px 250px;
-    opacity: 0;
-    animation: zoom 10s infinite;
+  background-image: radial-gradient(2px 2px at 50px 200px, #eee, rgba(0, 0, 0, 0)), radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)), radial-gradient(3px 4px at 120px 40px, #ddd, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 250px 250px;
+  opacity: 0;
+  animation: zoom 10s infinite;
 }
-  
-  
-  .stars:nth-child(1) {
-    background-position: 50% 50%;
-    animation-delay: 0s;
-  }
-  .stars:nth-child(2) {
-    background-position: 20% 60%;
-    animation-delay: 500ms;
-  }
-  .stars:nth-child(3) {
-    background-position: -20% -30%;
-    animation-delay: 1s;
-  }
-  .stars:nth-child(4) {
-    background-position: 40% -80%;
-    animation-delay: 1500ms;
-  }
-  .stars:nth-child(5) {
-    background-position: -20% 30%;
-    animation-delay: 2s;
-  }
-  .stars:nth-child(6) {
-    background-position: 40% -80%;
-    animation-delay: 2500ms;
-  }
-  .stars:nth-child(7) {
-    background-position: -20% 30%;
-    animation-delay: 3s;
-  }
-  .stars:nth-child(8) {
-    background-position: -20% 30%;
-    animation-delay: 3500ms;
-  }
-  .stars:nth-child(9) {
-    background-position: 40% -80%;
-    animation-delay: 4s;
-  }
-  
-  @keyframes zoom {
-    0% {
-      opacity: 0;
-      transform: scale(0.5);
-      animation-timing-function: ease-in;
-    } 
-    85% {
-      opacity: 1;
-      transform: scale(2.8);
-      animation-timing-function: linear;
-    }
-    100% {
-      opacity: 0;
-      transform: scale(3.5);
-    }
+
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+  animation-delay: 0s;
+}
+
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+  animation-delay: 500ms;
+}
+
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+  animation-delay: 1s;
+}
+
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+  animation-delay: 1500ms;
+}
+
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+  animation-delay: 2s;
+}
+
+.stars:nth-child(6) {
+  background-position: 40% -80%;
+  animation-delay: 2500ms;
+}
+
+.stars:nth-child(7) {
+  background-position: -20% 30%;
+  animation-delay: 3s;
+}
+
+.stars:nth-child(8) {
+  background-position: -20% 30%;
+  animation-delay: 3500ms;
+}
+
+.stars:nth-child(9) {
+  background-position: 40% -80%;
+  animation-delay: 4s;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
   }
 
-  .gradient-button {
-    background: linear-gradient(to right, #fff 0%, #fddd75 50%, #fff 100%);
-    border: none;
-    border-radius: 8px;
-    color: #000;
-    padding: 10px 30px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.5s;
-    text-decoration-line: none;
-    transition: background-position 0.5s ease;
-    background-size: 200% 200%;
-  
+  85% {
+    opacity: 1;
+    transform: scale(2.8);
+    animation-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
+
+.gradient-button {
+  background: linear-gradient(to right, #fff 0%, #fddd75 50%, #fff 100%);
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.5s;
+  text-decoration-line: none;
+  transition: background-position 0.5s ease;
+  background-size: 200% 200%;
+
 }
 
 .gradient-button:hover {
@@ -170,7 +262,8 @@ position: relative;
   z-index: 10;
 }
 
-.location a {
+.gradient-link a {
+  z-index: 99;
   color: transparent;
   background: linear-gradient(to right, #FFE569 0%, #F79327 50%, #FFE569 100%);
   background-clip: text;
@@ -179,25 +272,54 @@ position: relative;
   background-size: 200% 200%;
 }
 
-.location a:hover {
+.gradient-link a:hover {
   background-position: 100% 0;
 }
 
-.location svg {
-  fill: #fff; /* White fill initially (to blend with the link's background) */
-  transition: fill 0.3s ease; /* Smooth transition for fill color */
+.gradient-link svg {
+  fill: #fff;
+  /* White fill initially (to blend with the link's background) */
+  transition: fill 0.3s ease;
+  /* Smooth transition for fill color */
 }
 
-.location a:hover .location svg {
-  fill: #fff; /* Adjust the fill color on hover to match the gradient's effect */
+.gradient-link a:hover .location svg {
+  fill: #fff;
+  /* Adjust the fill color on hover to match the gradient's effect */
 }
 
-.carousel-indicators{
-  bottom:-48px;
+.carousel-indicators {
+  bottom: -48px;
 }
 
 .card:hover {
   transform: scale(1.05);
   transition: transform 0.3s;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.heart-loading {
+  width: 60px;
+  aspect-ratio: 1;
+  background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;
+  -webkit-mask:
+    radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left,
+    radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right,
+    linear-gradient(to bottom left, #000 42%, #0000 43%) bottom left,
+    linear-gradient(to bottom right, #000 42%, #0000 43%) bottom right;
+  -webkit-mask-size: 50% 50%;
+  -webkit-mask-repeat: no-repeat;
+  animation: l19 2s infinite linear;
+}
+
+@keyframes l19 {
+
+  90%,
+  100% {
+    background-size: 100% 100%
+  }
+}
+
+.button-link {
+  border: none;
 }

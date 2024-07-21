@@ -18,29 +18,72 @@
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/event.css" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 
 </head>
 
 <body>
-    <div class="bg-dark text-secondary px-4 py-5">
-        <div class="py-5">
-            <h1 class="col-lg-7 display-5 fw-bold text-white wow slideInLeft">Welcome to Fireplace's 10th Anniversary Musical Event</h1>
-            <div class="col-lg-6">
-                <p class="fs-5 mb-4">Join us as we celebrate a decade of
-                    milestones.</p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button type="submit" class="btn primary-background round-btn">Register Now!</button>
+    <div id="toastContainer" aria-live="polite" aria-atomic="true"
+        style="position: fixed; top: 50px; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+        <div id="toastMessage" class="toast align-items-center border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
                 </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>
     </div>
-    <section class="light-background p-5 text-center">
+    <nav class="navbar navbar-expand-lg secondary-background fs-6 fw-normal">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Fireplace</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mb-2 mb-lg-0 ">
+                    <li class="nav-item px-2">
+                        <a class="nav-link" aria-current="page" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#prices">Prices</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#bookingForm">Registration</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#cast">Cast</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="welcome-section bg-dark text-secondary px-4 py-5">
+
+        <div class="welcome-content py-5">
+            <h1 class="col-lg-7 display-5 fw-bold text-white" data-aos="fade-up" data-aos-delay="400">Welcome to
+                Fireplace's 10th Anniversary
+                Musical Event</h1>
+            <div class="col-lg-6">
+                <p class="fs-5 mb-4 text-white" data-aos="fade-up" data-aos-delay="600">Join us as we celebrate a decade
+                    of
+                    milestones.</p>
+            </div>
+            <button type="submit" class="btn primary-background round-btn" data-aos="fade-up"
+                data-aos-delay="800">Register Now!</button>
+
+        </div>
+    </div>
+    <section id="gallery" class="light-background p-5 text-center">
         <div class="container pt-3 pb-5">
-            <h1 class="display-6 fw-bold text-body-emphasis heading-font">Explore our gallery</h1>
+            <h1 class="display-6 fw-bold heading-font">Explore our gallery</h1>
             <p class="col-lg-7 mx-auto lead fw-normal pb-3">
                 Look forward to enjoying contributions from our various sponsors and student creations.
             </p>
-            
+
             <div id="myCarousel" class="carousel carousel-dark slide mb-6" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class=""
@@ -58,27 +101,27 @@
                             <img src="images/main.jpeg" class="d-block w-100" alt="Image 1">
                         </div>
                         <div class="d-none d-md-block">
-                            <div class="row justify-content-evenly">
+                            <div class="row justify-content-center g-5">
                                 <div class="col-md-4">
                                     <img src="images/main.jpeg" class="d-block w-100" alt="Image 1">
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="images/iam.png" class="d-block w-100" alt="Image 2">
+                                    <img src="images/iam.jpeg" class="d-block w-100" alt="Image 2">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item active">
                         <div class="d-block d-md-none">
-                            <img src="images/iam.png" class="d-block w-100" alt="Image 2">
+                            <img src="images/iam.jpeg" class="d-block w-100" alt="Image 2">
                         </div>
                         <div class="d-none d-md-block">
-                            <div class="row justify-content-evenly">
+                            <div class="row justify-content-center g-5">
                                 <div class="col-md-4">
-                                    <img src="images/iam.png" class="d-block w-100" alt="Image 3">
+                                    <img src="images/iam.jpeg" class="d-block w-100" alt="Image 3">
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="images/iam.png" class="d-block w-100" alt="Image 4">
+                                    <img src="images/iam.jpeg" class="d-block w-100" alt="Image 4">
                                 </div>
                             </div>
                         </div>
@@ -86,30 +129,30 @@
                     </div>
                     <div class="carousel-item">
                         <div class="d-block d-md-none">
-                            <img src="images/iam.png" class="d-block w-100" alt="Image 3">
+                            <img src="images/iam.jpeg" class="d-block w-100" alt="Image 3">
                         </div>
                         <div class="d-none d-md-block">
-                            <div class="row justify-content-evenly">
+                            <div class="row justify-content-center g-5">
                                 <div class="col-md-4">
-                                    <img src="images/iam.png" class="d-block w-100" alt="Image 5">
+                                    <img src="images/iam.jpeg" class="d-block w-100" alt="Image 5">
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="images/iam.png" class="d-block w-100" alt="Image 6">
+                                    <img src="images/iam.jpeg" class="d-block w-100" alt="Image 6">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="d-block d-md-none">
-                            <img src="images/iam.png" class="d-block w-100" alt="Image 3">
+                            <img src="images/iam.jpeg" class="d-block w-100" alt="Image 3">
                         </div>
                         <div class="d-none d-md-block">
-                            <div class="row justify-content-evenly">
+                            <div class="row justify-content-center g-5">
                                 <div class="col-md-4">
-                                    <img src="images/iam.png" class="d-block w-100" alt="Image 5">
+                                    <img src="images/iam.jpeg" class="d-block w-100" alt="Image 5">
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="images/iam.png" class="d-block w-100" alt="Image 6">
+                                    <img src="images/iam.jpeg" class="d-block w-100" alt="Image 6">
                                 </div>
                             </div>
                         </div>
@@ -135,53 +178,65 @@
                 <img src="images/I.png" class="d-block mx-auto img-fluid" alt="Bootstrap Themes" width="100%"
                     height="100%" loading="lazy">
             </div>
-
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
+            <div class="stars"></div>
             <div class="col-lg-6">
-                <h1 class="display-6 heading-font text-white lh-1 mb-3 text-center">29 Nov 2024</h1>
-                <h3 class="text-white fw-bold lh-1 mb-3 text-center">6pm-10pm</h3>
-                <p class="location fs-4 fw-bold lh-1 text-center">
+                <h1 class="display-6 heading-font text-white lh-1 mb-3 text-center" data-aos="fade-left">29 Nov 2024
+                </h1>
+                <h3 class="text-white fw-bold lh-1 mb-3 text-center" data-aos="fade-left" data-aos-delay="200">6pm-10pm
+                </h3>
+                <p class="gradient-link fs-4 fw-bold lh-1 text-center" data-aos="fade-left" data-aos-delay="400">
                     <a href="https://g.co/kgs/TTw1h6a" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-geo-alt-fill mb-2 me-2" viewBox="0 0 16 16">
-                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                            <path
+                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                         </svg>
                         Jalan Paya Terubong,<br>
                         11500 Air Itam, Penang.
                     </a>
                 </p>
-                <p class="lead text-white fw-normal">We are thrilled to invite you,
+                <p class="lead text-white fw-normal" data-aos="fade-left" data-aos-delay="600">We are thrilled to invite
+                    you,
                     your family and friends to witness our sensational production. It’s going
                     to be a night to remember, filled with enchanting music, captivating
                     performances and endless moments of joy.</p>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn primary-background round-btn">Register Now!</button>
+
+                <div class="d-flex justify-content-center gradient-link">
+                    <a href="#bookingForm" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                            <path fill-rule="evenodd"
+                                d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg> Register Below
+                    </a>
+
                 </div>
             </div>
-            
-        </div>
-        <div class="stars"></div>
-        <div class="stars"></div>
-        <div class="stars"></div>
-        <div class="stars"></div>
-        <div class="stars"></div>
-        <div class="stars"></div>
-        <div class="stars"></div>
+
 
     </section>
 
 
-    <section class="light-background text-center">
-        <div class="container g-5 p-5">
-            <h1 class="display-6 fw-bold text-body-emphasis heading-font">Ticket Prices</h1>
-            <p class="col-lg-7 mx-auto lead fw-normal pb-3">
+    <section id="prices" class="light-background text-center py-5">
+        <div class="container g-5">
+            <h1 class="display-6 fw-bold heading-font">Ticket Prices</h1>
+            <p class="col-lg-8 mx-auto lead fw-normal pb-3">
                 80% of all contributions and fees received from this event will go to supporting those in need of
                 financial support for a higher education.
             </p>
             <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-                <div class="col">
+                <div class="col" data-aos="fade-up" data-aos-delay="200">
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">Kids</h4>
+                            <h4 class="my-0 fw-normal">Junior</h4>
                         </div>
                         <div class="card-body">
                             <h3 class="card-title pricing-card-title">RM10<small
@@ -192,24 +247,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col" data-aos="fade-up" data-aos-delay="400">
                     <div class="card mb-4 rounded-3 shadow-sm primary-border">
                         <div class="card-header py-3 primary-background">
-                            <h4 class="my-0 fw-normal">Adults</h4>
+                            <h4 class="my-0 fw-normal">Standard</h4>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title pricing-card-title">RM20<small
+                            <h3 class="card-title pricing-card-title">RM30<small
                                     class="text-body-secondary fw-light">/Adult</small></h3>
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col" data-aos="fade-up" data-aos-delay="600">
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">Seniors</h4>
+                            <h4 class="my-0 fw-normal">Senior</h4>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title pricing-card-title">RM10<small
+                            <h3 class="card-title pricing-card-title">RM0<small
                                     class="text-body-secondary fw-light">/Senior</small></h3>
                             <ul class="list-unstyled mt-3 mb-0">
                                 <li>60 and Above</li>
@@ -220,39 +275,56 @@
             </div>
 
         </div>
-        <div class="container bg-light bg-gradient p-5 col-lg-8">
-            <h1 class="display-6 fw-bold text-body-emphasis heading-font">Registration Form</h1>
+
+
+        <div id="bookingForm" class="container bg-light bg-gradient p-5 col-lg-8">
+            <h1 class="display-6 fw-bold heading-font">Booking Form</h1>
             <p class="lead mx-auto pb-3">
                 Kindly fill in the registration form below if you can attend.</p>
-            <form class="row g-3 text-start">
+            <form id="rsvpForm" class="row g-3 pb-5 text-start needs-validation" novalidate>
                 <div class="col-md-6">
                     <label for="inputName" class="form-label">Name</label>
-                    <input type="name" class="form-control" id="inputName" placeholder="Jane Doe">
+                    <input type="name" class="form-control" id="inputName" placeholder="Jane Doe" required>
+                    <div class="invalid-feedback">
+                        Please enter your name
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="janedoe@email.com">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="janedoe@email.com" required>
+                    <div id="email-feedback" class="invalid-feedback">
+                        Please enter a valid email
+                    </div>
                 </div>
                 <div class="col-4">
                     <label for="inputAdults" class="form-label">How many adults?</label>
-                    <input type="number" class="form-control" id="inputAdults" placeholder="2">
+                    <input type="number" class="form-control" id="inputAdults" placeholder="0" required>
+                    <div class="invalid-feedback">
+                        Please provide the number of adults
+                    </div>
                 </div>
                 <div class="col-4">
                     <label for="inputKids" class="form-label">How many kids?</label>
-                    <input type="number" class="form-control" id="inputKids" placeholder="3">
+                    <input type="number" class="form-control" id="inputKids" placeholder="0" required>
+                    <div class="invalid-feedback">
+                        Please provide the number of kids
+                    </div>
                 </div>
                 <div class="col-4">
                     <label for="inputSeniors" class="form-label">How many seniors?</label>
-                    <input type="number" class="form-control" id="inputSeniors" placeholder="4">
+                    <input type="number" class="form-control" id="inputSeniors" placeholder="0" required>
+                    <div class="invalid-feedback">
+                        Please provide the number of seniors
+                    </div>
                 </div>
                 <div class="col-12">
                     <label for="referalInput" class="form-label">How did you hear about this Event?</label>
-                    <input type="text" class="form-control" id="referalInput" placeholder="John Doe">
+                    <input type="text" class="form-control" id="referalInput" placeholder="John Doe" required>
                 </div>
                 <div class="col-12">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label fw-bold" for="gridCheck">
+                        <input class="form-check-input" type="checkbox" id="acceptCheck" required>
+                        <label class="form-check-label fw-bold" for="acceptCheck">
                             I accept the terms
                         </label>
                         <p>Thank you for registering!<br>
@@ -264,79 +336,143 @@
                     <button type="submit" class="btn primary-background round-btn">Submit</button>
                 </div>
             </form>
+            <p>If you're facing any problems, feel free to contact <button id="copy-address"
+                    class="button-link font-monospace fs-6" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-title="Copy">fireplaceschool@gmail.com
+                    <span id="copy-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                        </svg></span></button></p>
+        </div>
+
+        <div id="loader" class="container p-5 mt-5 col-lg-8" style="display: none" >
+            <div class="row justify-content-center">
+                <div class="heart-loading">
+
+                </div>
+            </div>
+        </div>
+        <div id="thankyou" class="container green bg-gradient p-5 mt-5 col-lg-8" style="display: none">
+            <h1 class="display-6 fw-bold heading-font">Thank you!</h1>
+            <p class="lead mx-auto pb-3">
+                A copy of your booking has been sent to your email 🎉 <br>
+                For any issues/questions feel free to contact
+                <button id="copy-address" class="font-monospace fs-6" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" data-bs-title="Copy">fireplaceschool@gmail.com
+                    <span id="copy-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                        </svg></span></button>
+            </p>
         </div>
     </section>
 
-    <section class="accent">
+    <section id="cast" class="accent">
         <div class="p-5">
             <div class="container py-5">
-                <h1 class="display-6 fw-bold text-body-emphasis heading-font text-center">Quotes from the team!</h1>
+                <h1 class="display-6 fw-bold heading-font text-center">Quotes from the team!</h1>
                 <p class="lead fw-normal mb-5 text-center">
                     Let's introduce our fellow students who will be performing on stage
                 </p>
                 <div class="row text-center">
                     <div class="col-lg-3">
-                        <h5 class="fst-italic pt-3">Benjamin</h5>
-                        <blockquote class="blockquote">
-                            <p>"I'm human not God please don't have high expectations"</p>
-                        </blockquote>
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>I'm human not God please don't have high expectations</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <cite title="Source Title">Benjamin</cite>
+                            </figcaption>
+                        </figure>
                     </div>
                     <div class="col-lg-3">
-                        <h5 class="fst-italic pt-3">Zhi Xian</h5>
-                        <blockquote class="blockquote">
-                            <p>"Musical is good"</p>
-                        </blockquote>
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>Musical is good</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <cite title="Source Title">Zhi Xian</cite>
+                            </figcaption>
+                        </figure>
                     </div>
                     <div class="col-lg-3">
-                        <h5 class="fst-italic pt-3">Monami</h5>
-                        <blockquote class="blockquote">
-                            <p>"I look emo but I'm not"</p>
-                        </blockquote>
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>I look emo but I'm not</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <cite title="Source Title">Monami</cite>
+                            </figcaption>
+                        </figure>
                     </div>
                     <div class="col-lg-3">
-                        <h5 class="fst-italic pt-3">Ayden</h5>
-                        <blockquote class="blockquote">
-                            <p>"A life long experience"</p>
-                        </blockquote>
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>A life long experience</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <cite title="Source Title">Ayden</cite>
+                            </figcaption>
+                        </figure>
                     </div>
                     <div class="col-lg-3">
-                        <h5 class="fst-italic pt-3">Abbie</h5>
-                        <blockquote class="blockquote">
-                            <p>"I'm very happy to be performing as an angel because angel is a servant of God"
-                            </p>
-                        </blockquote>
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>I'm very happy to be performing as an angel because angel is a servant of God</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <cite title="Source Title">Abbie</cite>
+                            </figcaption>
+                        </figure>
                     </div>
                     <div class="col-lg-3">
-                        <h5 class="fst-italic pt-3">Jaden</h5>
-                        <blockquote class="blockquote">
-                            <p>"Being the bad guy is okey but the singing part is hard Tabitha wants it to
-                                sound evil"</p>
-                        </blockquote>
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>Enjoy the show</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <cite title="Source Title">Amanda</cite>
+                            </figcaption>
+                        </figure>
                     </div>
                     <div class="col-lg-3">
-                        <h5 class="fst-italic pt-3">Amanda</h5>
-                        <blockquote class="blockquote">
-                            <p>"Enjoy the show"</p>
-                        </blockquote>
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>Being the bad guy is okey but the singing part is hard Tabitha wants it to
+                                    sound evil</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <cite title="Source Title">Jaden</cite>
+                            </figcaption>
+                        </figure>
                     </div>
                     <div class="col-lg-3">
-                        <h5 class="fst-italic pt-3">Alvis</h5>
-                        <blockquote class="blockquote">
-                            <p>"If talent is a quarter then everyone would have a lot"</p>
-                        </blockquote>
+                        <figure class="text-center">
+                            <blockquote class="blockquote">
+                                <p>If talent is a quarter then everyone would have a lot</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <cite title="Source Title">Alvis</cite>
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <script src="../js/vendor/jquery-3.7.0.js"></script>
-    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
     <script src="../js/event.js"></script>
-    <script src="../js/vendor/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        new WOW().init();
+        AOS.init({
+        });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
 </body>
 
