@@ -1,6 +1,31 @@
 $(function onDocReady() {
     $('[data-bs-toggle="tooltip"]').tooltip();
     $('#rsvpForm').submit(handleRSVP);
+
+    var $scrollLeft = $('#scrollLeft');
+  var $scrollRight = $('#scrollRight');
+  var $rowInner = $('.gallery-row');
+
+  // Get the width of a tile and the margin between tiles
+  var tileWidth = $('.tile').outerWidth(true); // Includes margin
+  console.log('Tile width:', tileWidth); // Debugging purpose
+
+  $scrollLeft.on('click', function() {
+    var currentScroll = $rowInner.scrollLeft();
+    var newScroll = Math.max(0, currentScroll - tileWidth); // Ensure it doesn’t scroll past the start
+    $rowInner.animate({
+      scrollLeft: newScroll
+    }, 450);
+  });
+
+  $scrollRight.on('click', function() {
+    var currentScroll = $rowInner.scrollLeft();
+    var maxScroll = $rowInner.prop('scrollWidth') - $rowInner.width();
+    var newScroll = Math.min(maxScroll, currentScroll + tileWidth); // Ensure it doesn’t scroll past the end
+    $rowInner.animate({
+      scrollLeft: newScroll
+    }, 450);
+  });
     
 });
 
