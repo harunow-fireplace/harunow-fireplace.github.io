@@ -348,6 +348,7 @@ function recalculateCart() {
 
 function updateCartTotal() {
     noOfProducts = 0;
+    console.log(ordersMap)
     Object.entries(ordersMap).forEach(function ([key, value]) {
         noOfProducts += value;
     });
@@ -362,14 +363,14 @@ function updateQuantity(quantityInput) {
     var productRow = $(quantityInput).closest('.product');
     var item = productRow.find('.product-title').text().replace('I AM ', '');
     var price = prices[item.trim()] || prices["T-shirt"]; // Default to T-shirt price if item is not found
-    var quantity = $(quantityInput).val();
+    var quantity = parseInt($(quantityInput).val(), 10);
     var linePrice = price * quantity;
 
     if (item === "T-shirt") {
         item = item + "-" + productRow.find('.product-description').text();
     }
-    addOrUpdateProduct(item, quantity);
-
+    
+    ordersMap[item] = quantity;
 
     /* Update line price display and recalc cart totals */
     productRow.find('.product-total').each(function () {
