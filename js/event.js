@@ -1,32 +1,69 @@
 $(function onDocReady() {
     $('[data-bs-toggle="tooltip"]').tooltip();
     $('#rsvpForm').submit(handleRSVP);
+    $('.preOrderForm').submit(handlePreOrder);
+
 
     var $scrollLeft = $('#scrollLeft');
-  var $scrollRight = $('#scrollRight');
-  var $rowInner = $('.gallery-row');
+    var $scrollRight = $('#scrollRight');
+    var $rowInner = $('.gallery-row');
 
-  // Get the width of a tile and the margin between tiles
-  var tileWidth = $('.tile').outerWidth(true); // Includes margin
-  console.log('Tile width:', tileWidth); // Debugging purpose
+    // Get the width of a tile and the margin between tiles
+    var tileWidth = $('.tile').outerWidth(true); // Includes margin
 
-  $scrollLeft.on('click', function() {
-    var currentScroll = $rowInner.scrollLeft();
-    var newScroll = Math.max(0, currentScroll - tileWidth); // Ensure it doesn’t scroll past the start
-    $rowInner.animate({
-      scrollLeft: newScroll
-    }, 450);
-  });
+    $scrollLeft.on('click', function () {
+        var currentScroll = $rowInner.scrollLeft();
+        var newScroll = Math.max(0, currentScroll - tileWidth); // Ensure it doesn’t scroll past the start
+        $rowInner.animate({
+            scrollLeft: newScroll
+        }, 450);
+    });
 
-  $scrollRight.on('click', function() {
-    var currentScroll = $rowInner.scrollLeft();
-    var maxScroll = $rowInner.prop('scrollWidth') - $rowInner.width();
-    var newScroll = Math.min(maxScroll, currentScroll + tileWidth); // Ensure it doesn’t scroll past the end
-    $rowInner.animate({
-      scrollLeft: newScroll
-    }, 450);
-  });
-    
+    $scrollRight.on('click', function () {
+        var currentScroll = $rowInner.scrollLeft();
+        var maxScroll = $rowInner.prop('scrollWidth') - $rowInner.width();
+        var newScroll = Math.min(maxScroll, currentScroll + tileWidth); // Ensure it doesn’t scroll past the end
+        $rowInner.animate({
+            scrollLeft: newScroll
+        }, 450);
+    });
+
+
+});
+
+
+/* Set rates + misc */
+var fadeTime = 300;
+
+$('#button-minus1, #button-plus1').on('click', function () {
+    var $input = $('#quantity1');
+    var value = parseInt($input.val(), 10);
+
+    if ($(this).attr('id') === 'button-minus1' && value > 1) {
+        $input.val(value - 1);
+    } else if ($(this).attr('id') === 'button-plus1') {
+        $input.val(value + 1);
+    }
+});
+
+
+$('.size-picker div').on('click', function () {
+    $(this).siblings().removeClass('selected');
+    $(this).addClass('selected');
+
+    // Get the data-size attribute of the clicked size option
+    var selectedSize = $(this).attr('data-size');
+
+    // Set the value of the hidden input field to the selected size
+    $('#selected-size').val(selectedSize);
+});
+
+// Color picker logic
+$('.color-picker div').on('click', function () {
+    var selectedColor = $(this).data('color');
+    $('#selected-color').val(selectedColor);
+    $(this).siblings().removeClass('selected');
+    $(this).addClass('selected');
 });
 
 $('#copy-address').on('click', function () {
@@ -68,6 +105,8 @@ $('#copy-address').on('click', function () {
     });
 });
 
+
+let orderName = '';
 function handleRSVP(event) {
     //var username = $('#usernameInputSignin').val();
     //var password = $('#passwordInputSignin').val();
@@ -88,14 +127,15 @@ function handleRSVP(event) {
         // Show loader
         loader.show();
         email = $('#inputEmail').val();
+        orderName = $('#inputName').val();
         $.ajax({
             method: 'POST',
             url: 'https://jt5jm66qaa.execute-api.ap-southeast-2.amazonaws.com/prod/RSVP',
             data: JSON.stringify({
                 email: email,
-                name: $('#inputName').val(),
-                adults : $('#inputAdults').val(),
-                kids : $('#inputKids').val(),
+                name: orderName,
+                adults: $('#inputAdults').val(),
+                kids: $('#inputKids').val(),
                 seniors: $('#inputSeniors').val(),
                 referal: $('#referalInput').val()
             }),
@@ -103,7 +143,7 @@ function handleRSVP(event) {
             success: function (response) {
                 loader.hide();
                 thankyou.show();
-
+                $('#checkoutName').val(orderName);
                 showToast('Booking added!', 'text-bg-success');
 
                 confetti({
@@ -126,7 +166,7 @@ function handleRSVP(event) {
                     showToast('Ay, try a different email if you need another booking or contact fireplaceschool@gmail.com', 'text-bg-warning');
 
                     $('#email-feedback').text(email + ' is already used in a booking').show();
-                } else{
+                } else {
                     showToast('Aw man, if the problem continues please contact fireplaceschool@gmail.com ' + jqXHR.status, 'text-bg-danger');
 
                 }
@@ -140,20 +180,334 @@ function handleRSVP(event) {
 
 }
 
+let noOfProducts = 0;
+let ordersMap = {};
+function addOrUpdateProduct(product, quantity) {
+    // Check if the product exists in the ordersMap
+    if (!ordersMap[product]) {
+        // If the product does not exist, initialize it with the provided quantity
+        ordersMap[product] = 0;
+    }
+    // Update the product quantity
+    ordersMap[product] += quantity;
+}
+
+function handlePreOrder(event) {
+    if (this.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+    } else {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the form that triggered the event
+        var $form = $(event.target);
+
+        // Find the button with class 'add-button' within the form
+        var $button = $form.find('.add-button');
+
+        // Find the input with name 'product' within the form and get its value
+        var product = $form.find('input[name="product"]').val();
+
+        // Log the value
+        if (product === 'T-shirt') {
+            var sizeSelected = $('#selected-size').val() !== '';
+            var colorSelected = $('#selected-color').val() !== '';
+            if (sizeSelected && colorSelected) {
+                $("#shirtFeedback").hide();
+                let size = $('#selected-size').val();
+                let color = $('#selected-color').val();
+                product = product + "-" + size + "-" + color;
+
+                // Clear all form fields except hidden inputs
+                $('#selected-size').val('');
+                $('#selected-color').val('');
+
+                // Remove 'selected' class from size and color pickers
+                $form.find('.size-picker div').removeClass('selected');
+                $form.find('.color-picker div').removeClass('selected');
+            } else {
+                // Alert the user or provide feedback if size or color is not selected
+                $("#shirtFeedback").show();
+                return;
+            }
+        }
+
+        addOrUpdateProduct(product, 1);
+
+        if (!$button.hasClass('loading')) {
+            $button.addClass('loading');
+
+            // Remove the 'loading' class after the animation duration
+            setTimeout(() => $button.removeClass('loading'), 3700);
+        }
+        noOfProducts += 1;
+        $(".noOfProducts").text(noOfProducts);
+        $(".noOfProducts").show();
+        $("#cart").empty();
+        addToCart();
+        $("#total-checkout").show();
+        recalculateCart();
+    }
+
+    // Add Bootstrap validation classes
+    this.classList.add('was-validated');
+
+}
+//Shirt, cap, mug, bag , 30, 40, 20
+let prices = {
+    "T-shirt": 50,
+    "Cap": 30,
+    "Mug": 40,
+    "Tote-bag": 20
+}
+
+function addToCart() {
+    $('#preorder-thankyou').hide();
+    let cart = '';
+
+    if (ordersMap) {
+        $('#cart-alert').hide();
+        $('#cart').show();
+
+    }
+
+    Object.entries(ordersMap).forEach(function ([key, value]) {
+
+        let price;
+        let product = key;
+        if (key.includes("T-shirt")) {
+            product = key.substring(0, 7);
+            price = prices["T-shirt"] * value;
+        } else {
+            price = prices[key] * value;
+        }
+
+        let item = `<div class="product row border-bottom py-2">
+                        <div class="col-5">
+                            <div class="product-title">I AM ${product}</div>
+                            ${product === "T-shirt" ? `<p class="product-description small">${key.substring(8)}</p>` : ``}
+                        </div>
+                        <div class="col-3 text-center">
+                            <input type="number" class="product-quantity form-control form-control-sm" value="${value}" min="1">
+                        </div>
+                        <div class="col-1 text-center">
+                            <button class="btn btn-danger btn-sm remove-product">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                                  </svg>
+                            </button>
+                        </div>
+                        <div class="product-total col-3 text-center">${price}</div>
+                    </div>`;
+
+        cart += item;
+    });
+
+    $('#cart').html(cart);
+
+    // Re-bind events
+    bindEvents();
+
+}
+
+
+
+function bindEvents() {
+    /* Assign actions */
+    $('#cart').on('change', '.product-quantity', function () {
+        updateQuantity(this);
+    });
+
+    $('#cart').on('click', '.remove-product', function () {
+        removeItem(this);
+    });
+}
+
+/* Recalculate cart */
+function recalculateCart() {
+    var total = 0;
+    var numberOfItems = 0;
+    /* Sum up row totals */
+    $('.product').each(function () {
+        total += parseInt($(this).find('.product-total').text());
+    });
+
+    /* Update totals display */
+    $('.totals-value').fadeOut(fadeTime, function () {
+        $('#cart-total').html(total);
+        if (total == 0) {
+            $('#total-checkout').fadeOut(fadeTime);
+            $('#cart-alert').fadeIn(fadeTime);
+
+        } else {
+            $('#total-checkout').fadeIn(fadeTime);
+        }
+        $('.totals-value').fadeIn(fadeTime);
+    });
+}
+
+function updateCartTotal() {
+    noOfProducts = 0;
+    Object.entries(ordersMap).forEach(function ([key, value]) {
+        noOfProducts += value;
+    });
+    $(".noOfProducts").text(noOfProducts);
+    if (noOfProducts == 0) {
+        $(".noOfProducts").hide();
+    }
+}
+/* Update quantity */
+function updateQuantity(quantityInput) {
+    /* Calculate line price */
+    var productRow = $(quantityInput).closest('.product');
+    var item = productRow.find('.product-title').text().replace('I AM ', '');
+    var price = prices[item.trim()] || prices["T-shirt"]; // Default to T-shirt price if item is not found
+    var quantity = $(quantityInput).val();
+    var linePrice = price * quantity;
+
+    if (item === "T-shirt") {
+        item = item + "-" + productRow.find('.product-description').text();
+    }
+    addOrUpdateProduct(item, quantity);
+
+
+    /* Update line price display and recalc cart totals */
+    productRow.find('.product-total').each(function () {
+        $(this).fadeOut(fadeTime, function () {
+            $(this).text(linePrice);
+            recalculateCart();
+            $(this).fadeIn(fadeTime);
+        });
+    });
+    updateCartTotal();
+}
+
+/* Remove item from cart */
+function removeItem(removeButton) {
+    var productRow = $(removeButton).closest('.product');
+    var item = productRow.find('.product-title').text().replace('I AM ', '');
+
+    if (item === "T-shirt") {
+        item = item + "-" + productRow.find('.product-description').text();
+    }
+
+    delete ordersMap[item];
+
+    productRow.fadeOut(fadeTime, function () {
+        productRow.remove();
+        recalculateCart();
+    });
+    updateCartTotal();
+}
+
+$('.product-link').on('click', function (e) {
+    e.preventDefault(); // Prevent default link behavior if necessary
+
+    var parentId = $(this).parent().attr('id'); // Get the ID of the <li> element
+    var path = '../event/images/' + parentId + '.png'; // Construct the path
+
+    // Determine the product ID based on the parent ID
+    var product = '';
+    if (parentId.includes("shirt")) {
+        product = '#product-1';
+    } else {
+        product = '#product-3';
+    }
+
+    // Apply the CSS styles
+    var element = document.querySelector('.section-products ' + product + ' .part-1');
+    if (element) {
+        element.style.setProperty('--background-image', 'url("' + path + '")');
+        element.style.transition = 'all 0.3s';
+    }
+
+    // Adding the CSS for ::before pseudo-element
+    var style = document.createElement('style');
+    style.innerHTML = `
+    .section-products ${product} .part-1::before {
+        content: '';
+        background: var(--background-image) no-repeat center center;
+        background-size: cover;
+    }
+`;
+    document.head.appendChild(style);
+});
+
+$('.checkout').on('click', function (e) {
+    e.preventDefault();
+    $('#checkoutFeedback').addClass('hidden');
+
+    if ($('#checkoutName').val() === '') {
+        $('#checkoutFeedback').removeClass('hidden');
+        return;
+    }
+
+    ordersMap["name"] = $('#checkoutName').val();
+    // Ensure ordersMap is serialized to JSON
+    let ordersMapJson = JSON.stringify(ordersMap);
+
+    $.ajax({
+        method: 'POST',
+        url: 'https://jt5jm66qaa.execute-api.ap-southeast-2.amazonaws.com/prod/order', // Ensure this URL is correct
+        contentType: 'application/json',
+        data: ordersMapJson, // Use the serialized JSON string
+        success: function (response) {
+            let orderNo = response.orderNo;
+            if (orderNo < 10) {
+                orderNo = `00${orderNo}`;
+            } else if (orderNo < 100) {
+                orderNo = `0${orderNo}`;
+            }
+
+            // Create the 5-digit number with the orderNo at the end
+            orderNo = `10${orderNo}`;
+
+            // Fade out elements and reset states
+            $('#cart').fadeOut(fadeTime);
+            $('#total-checkout').fadeOut(fadeTime);
+            $('#preorder-thankyou').text("Thank you order #" + orderNo);
+            $('#preorder-thankyou').fadeIn(fadeTime);
+
+            // Clear ordersMap and update product count
+            ordersMap = {}; // Reset ordersMap to an empty object
+            noOfProducts = 0; // Reset the number of products
+            $(".noOfProducts").hide(); // Hide product count display
+
+            showToast('Your pre-order has been added!', 'text-bg-success');
+
+            confetti({
+                particleCount: 150,
+                spread: 180,
+                origin: { x: 0, y: 0.6 } // Top left corner
+            });
+
+            confetti({
+                particleCount: 150,
+                spread: 180,
+                origin: { x: 1, y: 0.6 } // Top right corner
+            });
+        },
+        error: function (xhr, status, error) {
+            showToast('Aw man, if the problem continues please contact fireplaceschool@gmail.com ', 'text-bg-danger');
+        }
+    });
+});
+
+
 function showToast(message, type) {
     var toast = $("#toastMessage");
     toast.removeClass("text-bg-danger");
     toast.removeClass("text-bg-success");
     toast.removeClass("text-bg-warning");
 
-    
+
     toast.addClass(type);
     var toastBody = toast.find(".toast-body");
-  
+
     // Set the error message
     toastBody.html(message);
-  
-  
+
+
     // Show the toast
     toast.toast("show");
-  }
+}

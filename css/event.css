@@ -1,3 +1,6 @@
+body {
+  background-color: #F6F4EC;
+}
 .welcome-section {
   background-image: url('../event/images/synagogue.jpeg');
   background-size: cover;
@@ -117,8 +120,9 @@ button {
   /* Terracotta */
 }
 
-button:hover {
-  color: #D25A47;
+.primary-background:hover {
+  background-color: #E65103;
+  color: #fff;
   /* Darker terracotta on hover */
 }
 
@@ -130,18 +134,9 @@ button:hover {
   font-family: 'EB Garamond';
 }
 
-.round-btn {
-  border-radius: 24px;
-  padding: 8px 24px 8px 24px;
-}
-
-.round-btn:hover {
-  background-color: #E65103;
-  color: #fff;
-}
 
 .form-check-input:checked {
-  background-color: #BF4408;
+  background-color: #bf4508;
   border-color: #BF4408;
 }
 
@@ -334,14 +329,10 @@ button:hover {
   }
 }
 
-.button-link {
-  border: none;
-}
 
 
 
-
-#gallery
+/* Gallery carousel */
 .contain {
   position: relative;
 }
@@ -442,4 +433,448 @@ button:hover {
 
 .chevron-right {
   right: 10px;
+}
+
+/* Product items */
+.product-item {
+  background: #fff;
+}
+
+.section-products .single-product {
+  margin-bottom: 26px;
+}
+
+.section-products .single-product .part-1 {
+  position: relative;
+  height: 290px;
+  max-height: 290px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.section-products .single-product .part-1::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.section-products .single-product:hover .part-1::before {
+  transform: scale(1.2,1.2) rotate(5deg);
+}
+
+.section-products #product-1 .part-1::before {
+  background: url('../event/images/shirt-red-back.png') no-repeat center;
+  background-size: cover;
+  transition: all 0.3s;
+}
+.section-products .single-product .part-1 ul li {
+  background-color: #ccc;
+
+}
+.section-products .single-product .part-1 ul li#shirt-red-back a {
+  background: url('../event/images/shirt-red-back.png') no-repeat center center;
+  background-size: cover;
+}
+
+.section-products .single-product .part-1 ul li#shirt-red-front a {
+  background: url('../event/images/shirt-red-front.png') no-repeat center center;
+  background-size: cover;
+}
+
+.section-products .single-product .part-1 ul li#shirt-blue-back a {
+  background: url('../event/images/shirt-blue-back.png') no-repeat center center;
+  background-size: cover;
+}
+
+.section-products .single-product .part-1 ul li#shirt-blue-front a {
+  background: url('../event/images/shirt-blue-front.png') no-repeat center center;
+  background-size: cover;
+}
+
+.section-products #product-2 .part-1::before {
+  background: url('../event/images/iam-cap.png') no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-3 .part-1::before {
+  background: url('../event/images/iam-mug-front.png') no-repeat center;
+  background-size: cover;
+}
+.section-products .single-product .part-1 ul li#iam-mug-front a {
+  background: url('../event/images/iam-mug-front.png') no-repeat center center;
+  background-size: cover;
+}
+.section-products .single-product .part-1 ul li#iam-mug-back a {
+  background: url('../event/images/iam-mug-back.png') no-repeat center center;
+  background-size: cover;
+}
+
+.section-products #product-4 .part-1::before {
+  background: url('../event/images/iam-totebag.png') no-repeat center;
+  background-size: cover;
+}
+
+.section-products .single-product .part-1 .discount,
+.section-products .single-product .part-1 .new {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  color: #ffffff;
+  background-color: #fe302f;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.section-products .single-product .part-1 .new {
+  left: 0;
+  background-color: #444444;
+}
+
+.section-products .single-product .part-1 ul {
+  position: absolute;
+  bottom: -41px;
+  left: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  transition: bottom 0.5s, opacity 0.5s;
+}
+
+.section-products .single-product:hover .part-1 ul {
+  bottom: 30px;
+  opacity: 1;
+}
+
+.section-products .single-product .part-1 ul li {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.section-products .single-product .part-1 ul li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #ffffff;
+  color: #444444;
+  text-align: center;
+  box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+  transition: color 0.2s;
+}
+
+.size-picker, .color-picker {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.size-picker div, .color-picker div {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.size-picker div.selected, .color-picker div.selected {
+  border: 2px solid #be8d54;
+  border-radius: 50%;
+}
+.color-picker .red {
+  background-color: #892021;
+}
+.color-picker .blue {
+  background-color: #1d315e;
+}
+
+/* Button */
+
+.round-btn {
+  border-radius: 24px;
+  padding: 8px 24px 8px 24px;
+}
+
+.noOfProducts:hover {
+  background-color: #E65103;
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background-color: #E65103;
+  color: #fff;
+}
+
+.round-light-btn {
+  border-radius: 24px;
+  padding: 8px 24px 8px 24px;
+  color: #000;
+  background-color: #F5D1B0;
+}
+.accent-outline-btn{
+  color: #be8d54;
+  border: 2px solid #be8d54;
+}
+
+.accent-outline-btn:hover {
+  color: #BF4408;
+  border: 2px solid #BF4408;
+}
+
+.button-link {
+  border: none;
+}
+
+.add-button {
+  --text: #be8d54;
+  --cart: #be8d54;
+  --tick: var(--background);
+  position: relative; 
+  border: 2px solid #be8d54;
+  background: none;
+  padding: 3px 20px;
+  border-radius: 8px;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  min-width: 144px;
+  color: var(--text);
+  background: var(--background);
+  transform: scale(var(--scale, 1));
+  transition: transform .4s cubic-bezier(.36, 1.01, .32, 1.27);
+}
+.add-button:active {
+  --scale: .95;
+}
+.add-button span {
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  position: relative;
+  padding-left: 24px;
+  margin-left: -8px;
+  line-height: 26px;
+  transform: translateY(var(--span-y, 0));
+  transition: transform .7s ease;
+}
+.add-button span:before,
+.add-button span:after {
+  content: '';
+  width: var(--w, 2px);
+  height: var(--h, 14px);
+  border-radius: 1px;
+  position: absolute;
+  left: var(--l, 8px);
+  top: var(--t, 6px);
+  background: currentColor;
+  transform: scale(.75) rotate(var(--icon-r, 0deg)) translateY(var(--icon-y, 0));
+  transition: transform .65s ease .05s;
+}
+.add-button span:after {
+  --w: 14px;
+  --h: 2px;
+  --l: 2px;
+  --t: 12px;
+}
+.add-button .cart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -13px 0 0 -18px;
+  transform-origin: 12px 23px;
+  transform: translateX(-120px) rotate(-18deg);
+}
+.add-button .cart:before,
+.add-button .cart:after {
+  content: '';
+  position: absolute;
+}
+.add-button .cart:before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px var(--cart);
+  bottom: 0;
+  left: 9px;
+  filter: drop-shadow(11px 0 0 var(--cart));
+}
+.add-button .cart:after {
+  width: 16px;
+  height: 9px;
+  background: var(--cart);
+  left: 9px;
+  bottom: 7px;
+  transform-origin: 50% 100%;
+  transform: perspective(4px) rotateX(-6deg) scaleY(var(--fill, 0));
+  transition: transform 1.2s ease var(--fill-d);
+}
+.add-button .cart svg {
+  z-index: 1;
+  width: 36px;
+  height: 26px;
+  display: block;
+  position: relative;
+  fill: none;
+  stroke: var(--cart);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.add-button .cart svg polyline:last-child {
+  stroke: var(--tick);
+  stroke-dasharray: 10px;
+  stroke-dashoffset: var(--offset, 10px);
+  transition: stroke-dashoffset .4s ease var(--offset-d);
+}
+.add-button.loading {
+  --scale: .95;
+  --span-y: -32px;
+  --icon-r: 180deg;
+  --fill: 1;
+  --fill-d: .8s;
+  --offset: 0;
+  --offset-d: 1.73s;
+}
+.add-button.loading .cart {
+  animation: cart 3.4s linear forwards .2s;
+}
+
+@keyframes cart {
+  12.5% {
+      transform: translateX(-60px) rotate(-18deg);
+  }
+  25%,
+  45%,
+  55%,
+  75% {
+      transform: none;
+  }
+  50% {
+      transform: scale(.9);
+  }
+  44%,
+  56% {
+      transform-origin: 12px 23px;
+  }
+  45%,
+  55% {
+      transform-origin: 50% 50%;
+  }
+  87.5% {
+      transform: translateX(70px) rotate(-18deg);
+  }
+  100% {
+      transform: translateX(140px) rotate(-18deg);
+  }
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+}
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.pill-color {
+  background-color: #08A4BF;
+}
+
+.product-feedback {
+  font-size: 14px;
+}
+
+.quantity-input {
+  width: 50px;
+}
+
+.hidden {
+  visibility: hidden; /* Element is hidden but still occupies space */
+}
+
+/* Global "table" column settings */
+
+/* Apply clearfix in relevant places */
+
+/* Apply dollar signs */
+.product .product-price:before, 
+.product .product-line-price:before, 
+.totals-value:before {
+  content: 'RM';
+}
+
+/* Shopping cart */
+
+/* General styling */
+.shopping-cart {
+  margin-top: 20px;
+}
+
+.product-image img {
+  max-width: 100px;
+}
+
+.product-title {
+  font-weight: bold;
+}
+
+.product-description {
+  margin-top: 0.5rem;
+}
+
+.product-quantity input {
+  width: 80px;
+}
+
+.remove-product {
+  border: 0;
+  padding: 0.25rem 0.5rem;
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.remove-product:hover {
+  background-color: #c82333;
+}
+
+.totals-item {
+  margin-bottom: 10px;
+}
+
+.totals-value {
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-image img {
+      max-width: 80px;
+  }
+
+  .product-title {
+      font-size: 0.9rem;
+  }
+
+  .product-description {
+      font-size: 0.8rem;
+  }
+
+  .product-quantity input {
+      width: 60px;
+  }
 }
