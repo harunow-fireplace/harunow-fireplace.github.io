@@ -877,3 +877,13 @@ html {
       width: 60px;
   }
 }
+
+/* Quiz section */
+.step {
+  display: none;
+  font-size: 18px;
+}
+.step.active {
+  display: block;
+}
+

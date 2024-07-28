@@ -2,6 +2,8 @@ $(function onDocReady() {
     $('[data-bs-toggle="tooltip"]').tooltip();
     $('#rsvpForm').submit(handleRSVP);
     $('.preOrderForm').submit(handlePreOrder);
+    $('#quizForm').submit(handleQuiz);
+
 
 
     var $scrollLeft = $('#scrollLeft');
@@ -369,7 +371,7 @@ function updateQuantity(quantityInput) {
     if (item === "T-shirt") {
         item = item + "-" + productRow.find('.product-description').text();
     }
-    
+
     ordersMap[item] = quantity;
 
     /* Update line price display and recalc cart totals */
@@ -479,13 +481,15 @@ $('.checkout').on('click', function (e) {
             confetti({
                 particleCount: 150,
                 spread: 180,
-                origin: { x: 0, y: 0.6 } // Top left corner
+                origin: { x: 0, y: 0.6 }, // Top left corner
+                zIndex: 9999
             });
 
             confetti({
                 particleCount: 150,
                 spread: 180,
-                origin: { x: 1, y: 0.6 } // Top right corner
+                origin: { x: 1, y: 0.6 }, // Top right corner
+                zIndex: 9999
             });
         },
         error: function (xhr, status, error) {
@@ -511,4 +515,96 @@ function showToast(message, type) {
 
     // Show the toast
     toast.toast("show");
+}
+
+let currentStep = 1;
+const totalSteps = 11;
+
+function updateProgressBar() {
+    const progress = (currentStep / totalSteps) * 100;
+    $('#progressBar').css('width', progress + '%').attr('aria-valuenow', progress);
+}
+
+$(".next").click(function () {
+    if (currentStep == 1 && $('#question1').val() === '') {
+        $('#quizFeedback').removeClass('hidden');
+        return;
+    } else {
+        $('#quizFeedback').addClass('hidden');
+    }
+    if (currentStep < totalSteps) {
+        $(`.step-${currentStep}`).removeClass("active");
+        currentStep++;
+        $(`.step-${currentStep}`).addClass("active");
+        updateProgressBar();
+    }
+});
+
+$(".prev").click(function () {
+    if (currentStep > 1) {
+        $(`.step-${currentStep}`).removeClass("active");
+        currentStep--;
+        $(`.step-${currentStep}`).addClass("active");
+        updateProgressBar();
+    }
+});
+
+updateProgressBar();
+
+function handleQuiz(event) {
+    event.preventDefault();
+
+    let question1 = $('input[name="question2"]:checked').val() || '';
+    let question2 = $('input[name="question3"]:checked').map(function () {
+        return $(this).next('label').text().trim() || '';
+    }).get();
+    let question3 = $('input[name="question4"]:checked').val() || '';
+    let question4 = $('input[name="question5"]:checked').val() || '';
+    let question5 = $('input[name="question6"]:checked').val() || '';
+    let question6 = $('input[name="question7"]:checked').val() || '';
+    let question7 = $('input[name="question8"]:checked').val() || '';
+    let question8 = $('input[name="question9"]:checked').val() || '';
+    let question9 = $('input[name="question10"]:checked').val() || '';
+    let question10 = $('input[name="question11"]:checked').val() || '';
+    let name = $('#question1').val() || '';
+
+    $.ajax({
+        method: 'POST',
+        url: 'https://jt5jm66qaa.execute-api.ap-southeast-2.amazonaws.com/prod/quiz',
+        data: JSON.stringify({
+            name: name,
+            question1: question1,
+            question2: question2, // This will be an array
+            question3: question3,
+            question4: question4,
+            question5: question5,
+            question6: question6,
+            question7: question7,
+            question8: question8,
+            question9: question9,
+            question10: question10
+        }),
+        contentType: 'application/json',
+        success: function (response) {
+            $('#quiz').hide();
+            $('#quiz-thankyou').show();
+
+            confetti({
+                particleCount: 150,
+                spread: 180,
+                origin: { x: 0, y: 0.6 } // Top left corner
+            });
+
+            confetti({
+                particleCount: 150,
+                spread: 180,
+                origin: { x: 1, y: 0.6 } // Top right corner
+            });
+        },
+        error: function ajaxError(jqXHR, textStatus, errorThrown) {
+            showToast('Aw man, if the problem continues please contact fireplaceschool@gmail.com ' + jqXHR.status, 'text-bg-danger');
+        },
+    });
+
+
 }
