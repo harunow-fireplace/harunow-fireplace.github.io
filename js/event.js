@@ -121,6 +121,10 @@ function handleRSVP(event) {
     } else {
         event.preventDefault(); // Prevent form submission
 
+        $('#submit-registration').prop('disabled', true);
+        const spanElement = $('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>');
+        $('#submit-registration').prepend(spanElement);
+
         var form = $('#bookingForm');
         var loader = $('#loader');
         var thankyou = $('#thankyou');
@@ -173,6 +177,10 @@ function handleRSVP(event) {
 
                 }
             },
+            complete: function () {
+                spanElement.remove();
+                $('#submit-registration').prop('disabled', false);
+            }
         });
 
     }
@@ -200,7 +208,7 @@ function handlePreOrder(event) {
         event.stopPropagation();
     } else {
         event.preventDefault(); // Prevent form submission
-
+        
         // Get the form that triggered the event
         var $form = $(event.target);
 
@@ -445,6 +453,10 @@ $('.checkout').on('click', function (e) {
         return;
     }
 
+    $('#submit-checkout').prop('disabled', true);
+    const spanElement = $('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>');
+    $('#submit-checkout').prepend(spanElement);
+
     ordersMap["name"] = $('#checkoutName').val();
     // Ensure ordersMap is serialized to JSON
     let ordersMapJson = JSON.stringify(ordersMap);
@@ -494,6 +506,10 @@ $('.checkout').on('click', function (e) {
         },
         error: function (xhr, status, error) {
             showToast('Aw man, if the problem continues please contact fireplaceschool@gmail.com ', 'text-bg-danger');
+        },
+        complete: function () {
+            spanElement.remove();
+            $('#submit-checkout').prop('disabled', false);
         }
     });
 });
@@ -554,6 +570,11 @@ updateProgressBar();
 function handleQuiz(event) {
     event.preventDefault();
 
+    $('#submit-quiz').prop('disabled', true);
+    const spanElement = $('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>');
+    $('#submit-quiz').prepend(spanElement);
+    $('#previousButton').prop('disabled', true);
+
     let question1 = $('input[name="question2"]:checked').val() || '';
     let question2 = $('input[name="question3"]:checked').map(function () {
         return $(this).next('label').text().trim() || '';
@@ -600,10 +621,16 @@ function handleQuiz(event) {
                 spread: 180,
                 origin: { x: 1, y: 0.6 } // Top right corner
             });
+            
         },
         error: function ajaxError(jqXHR, textStatus, errorThrown) {
             showToast('Aw man, if the problem continues please contact fireplaceschool@gmail.com ' + jqXHR.status, 'text-bg-danger');
         },
+        complete: function () {
+            spanElement.remove();
+            $('#submit-quiz').prop('disabled', false);
+            $('#previousButton').prop('disabled', true);
+        }
     });
 
 

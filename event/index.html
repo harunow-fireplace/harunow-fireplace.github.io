@@ -240,7 +240,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn primary-background round-btn">Submit</button>
+                    <button id="submit-registration" type="submit" class="btn primary-background round-btn">Submit</button>
                 </div>
             </form>
             <p>If you're facing any problems, feel free to contact <button id="copy-address"
@@ -495,6 +495,9 @@
         <div class="offcanvas-body">
             <div class="container">
                 <div class="shopping-cart">
+                    <div id="preorder-thankyou" class="alert alert-success" role="alert" style="display: none;">
+                    </div>
+
                     <div id="cart-alert" class="alert alert-info" role="alert">
                         Cart is empty. You can add pre-order items to your cart
                     </div>
@@ -522,15 +525,11 @@
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-auto">
-                                <button class="btn primary-background round-btn checkout">Pre-Order</button>
+                                <button id="submit-checkout" class="btn primary-background round-btn checkout">Pre-Order</button>
                             </div>
                         </div>
                     </div>
-
-                    <div id="preorder-thankyou" class="alert alert-success" role="alert" style="display: none;">
-                    </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -979,10 +978,10 @@
                         </div>
                         <div class="row justify-content-end pt-5 pb-2">
                             <div class="col">
-                                <button type="button" class="btn primary-background round-btn prev">Previous</button>
+                                <button id="previousButton" type="button" class="btn primary-background round-btn prev">Previous</button>
                             </div>
                             <div class="col-auto">
-                                <button type="submit" class="btn primary-background round-btn next">Submit</button>
+                                <button id="submit-quiz" type="submit" class="btn primary-background round-btn next">Submit</button>
                             </div>
                         </div>
                     </div>
