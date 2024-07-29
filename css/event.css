@@ -643,14 +643,14 @@ button {
   position: relative; 
   border: 2px solid #be8d54;
   background: none;
-  padding: 3px 20px;
+  padding: 2px 20px;
   border-radius: 8px;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
   cursor: pointer;
   text-align: center;
-  min-width: 144px;
+  min-width: 100px;
   color: var(--text);
   background: var(--background);
   transform: scale(var(--scale, 1));
