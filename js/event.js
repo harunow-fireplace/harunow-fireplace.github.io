@@ -225,7 +225,7 @@ function handlePreOrder(event) {
         event.stopPropagation();
     } else {
         event.preventDefault(); // Prevent form submission
-        
+
         // Get the form that triggered the event
         var $form = $(event.target);
 
@@ -638,7 +638,7 @@ function handleQuiz(event) {
                 spread: 180,
                 origin: { x: 1, y: 0.6 } // Top right corner
             });
-            
+
         },
         error: function ajaxError(jqXHR, textStatus, errorThrown) {
             showToast('Aw man, if the problem continues please contact fireplaceschool@gmail.com ' + jqXHR.status, 'text-bg-danger');
@@ -649,6 +649,52 @@ function handleQuiz(event) {
             $('#previousButton').prop('disabled', true);
         }
     });
-
-
 }
+
+
+$('.downloadCalendar').on('click', function() {
+    // Calendar event details
+    var calendarEvent = {
+        title: "A Fireplace Musical Event",
+        description: "Fireplace's 10th Anniversary",
+        location: "Chinese Methodist Church",
+        address: "Ayer Itam Chinese Methodist Church (CAC)", // Add the address here
+        startTime: "20241129T190000", // Start time: 29th Nov 2024, 7 PM
+        endTime: "20241129T220000", // End time: 29th Nov 2024, 11 PM
+        timezone: "Asia/Kuala_Lumpur" // Malaysia timezone
+    };
+
+    // Create the Google Maps link for the location
+    var mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(calendarEvent.address)}`;
+
+    // Create the .ics file content
+    var icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//NONSGML v1.0//EN
+BEGIN:VEVENT
+SUMMARY:${calendarEvent.title}
+DESCRIPTION:${calendarEvent.description}
+LOCATION:${calendarEvent.location}
+URL:${mapsLink}
+DTSTART;TZID=${calendarEvent.timezone}:${calendarEvent.startTime}
+DTEND;TZID=${calendarEvent.timezone}:${calendarEvent.endTime}
+END:VEVENT
+END:VCALENDAR`;
+
+    // Create a Blob with the icsData
+    var blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+
+    // Create a link element
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'event.ics'; // Filename for the downloaded file
+
+    // Append the link to the body (necessary for Firefox)
+    document.body.appendChild(link);
+
+    // Trigger the download
+    link.click();
+
+    // Clean up
+    document.body.removeChild(link);
+});

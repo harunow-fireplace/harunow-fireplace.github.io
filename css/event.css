@@ -887,3 +887,12 @@ html {
   display: block;
 }
 
+.downloadCalendar {
+  cursor: pointer;
+  color: #be8d54;
+}
+
+.downloadCalendar:hover {
+  color: #be8d54;
+  background-color: #FBF1EB;
+}
