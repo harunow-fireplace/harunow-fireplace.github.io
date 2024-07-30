@@ -300,10 +300,6 @@ button {
   /* Adjust the fill color on hover to match the gradient's effect */
 }
 
-.carousel-indicators {
-  bottom: -48px;
-}
-
 .card:hover {
   transform: scale(1.05);
   transition: transform 0.3s;
