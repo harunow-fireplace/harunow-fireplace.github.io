@@ -232,6 +232,14 @@
                 </div>
                 <div class="col-12">
                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="reminderCheck">
+                        <label class="form-check-label" for="reminderCheck">
+                            I would like to receive a reminder 1 week before the event by email
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="acceptCheck" required>
                         <label class="form-check-label fw-bold" for="acceptCheck">
                             I accept the terms
@@ -263,7 +271,7 @@
                 </div>
             </div>
         </div>
-        <div id="thankyou" class="container green bg-gradient p-5 mt-5 col-lg-8">
+        <div id="thankyou" class="container green bg-gradient p-5 mt-5 col-lg-8" style="display: none;">
             <h1 class="display-6 fw-bold heading-font">Thank you!</h1>
             <p class="lead mx-auto pb-3">
                 A copy of your booking has been sent to your email 🎉 <br>

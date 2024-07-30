@@ -130,7 +130,6 @@ function handleRSVP(event) {
     //var username = $('#usernameInputSignin').val();
     //var password = $('#passwordInputSignin').val();
     // Clear previous validation and error messages
-
     // Check validity of the form
     if (this.checkValidity() === false) {
         event.preventDefault();
@@ -160,7 +159,8 @@ function handleRSVP(event) {
                 adults: $('#inputAdults').val(),
                 kids: $('#inputKids').val(),
                 seniors: $('#inputSeniors').val(),
-                referal: $('#referalInput').val()
+                referal: $('#referalInput').val(),
+                reminderCheck: $('#reminderCheck').is(':checked')
             }),
             contentType: 'application/json',
             success: function (response) {
