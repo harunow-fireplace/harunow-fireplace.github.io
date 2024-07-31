@@ -160,7 +160,7 @@ function handleRSVP(event) {
                 kids: $('#inputKids').val(),
                 seniors: $('#inputSeniors').val(),
                 referal: $('#referalInput').val(),
-                reminderCheck: $('#reminderCheck').is(':checked')
+                reminder: $('#reminderCheck').is(':checked')
             }),
             contentType: 'application/json',
             success: function (response) {
