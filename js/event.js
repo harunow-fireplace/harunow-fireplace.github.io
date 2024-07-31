@@ -670,7 +670,7 @@ $('.downloadCalendar').on('click', function() {
     // Create the .ics file content
     var icsData = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Your Organization//NONSGML v1.0//EN
+PRODID:-//Fireplace//NONSGML v1.0//EN
 BEGIN:VEVENT
 SUMMARY:${calendarEvent.title}
 DESCRIPTION:${calendarEvent.description}
@@ -678,6 +678,11 @@ LOCATION:${calendarEvent.location}
 URL:${mapsLink}
 DTSTART;TZID=${calendarEvent.timezone}:${calendarEvent.startTime}
 DTEND;TZID=${calendarEvent.timezone}:${calendarEvent.endTime}
+UID:${new Date().getTime()}@harunow.com
+BEGIN:VALARM
+TRIGGER:-PT24H
+DESCRIPTION:Reminder for ${calendarEvent.description}
+END:VALARM
 END:VEVENT
 END:VCALENDAR`;
 
