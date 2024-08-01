@@ -36,6 +36,7 @@ Harunow.map = Harunow.map || {};
             },
             contentType: 'application/json',
             success: async function (response) {
+                
                 userType = response.user.userType;
 
                 if (response.school.holidays) {
@@ -68,7 +69,7 @@ Harunow.map = Harunow.map || {};
 
                 let activityCard = createActivityCard(response.posts);
                 let $activityCard = $(activityCard);
-                $grid.append($activityCard).masonry('appended', $activityCard);
+                $grid.append($activityCard).masonry('prepended', $activityCard);
                 $grid.masonry();
                 addPost();
 
@@ -87,13 +88,13 @@ Harunow.map = Harunow.map || {};
                     $grid.masonry();
                 }
 
-                /* if (response.albums && response.albums.length > 0) {
+                if (response.albums && response.albums.length > 0) {
                     let albumCard = await createAlbumCard(response.albums);
                     let $albumCard = $(albumCard);
                     $grid.append($albumCard).masonry('appended', $albumCard);
                     $grid.masonry();
-                } */
-                getTableRecord();
+                }
+                // getTableRecord();
 
                 if (response.notes) {
                     let note = createNote(response.notes[0], username);
@@ -102,6 +103,8 @@ Harunow.map = Harunow.map || {};
                     $grid.masonry();
                 }
 
+               
+                console.log(response)
             },
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
@@ -322,7 +325,7 @@ Harunow.map = Harunow.map || {};
         let card = `<div class="col-sm-6 col-lg-4 mb-4">
             <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Latest</h5>
+                  <h5 class="card-title">Latest Album</h5>
                   <div class="row row-cols-3 row-cols-lg-3">`;
 
         // Create an array of promises for downloading album cover images
