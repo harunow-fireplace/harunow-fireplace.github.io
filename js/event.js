@@ -29,11 +29,47 @@ $(function onDocReady() {
             scrollLeft: newScroll
         }, 450);
     });
-
+    getSeats();
 
 });
+let total = 0
+function getSeats() {
+    $.ajax({
+        method: 'GET',
+        url: 'https://jt5jm66qaa.execute-api.ap-southeast-2.amazonaws.com/prod/RSVP',
+        contentType: 'application/json',
+        success: function (response) {
+            total = response.total;
+            $('#seatsButton').html(total + " Booked");
+        },
+        error: function ajaxError(jqXHR, textStatus, errorThrown) {
+            console.error('Error getting seats', textStatus, ', Details: ', errorThrown);
+        }
+    });
+}
 
+$('#seatsButton').on('click', function () {
+    // Set the event date
+    const eventDate = new Date('2024-11-29T19:00:00');
 
+    // Get the current date and time
+    const now = new Date();
+
+    // Calculate the time difference in milliseconds
+    const timeDifference = eventDate - now;
+
+    // Calculate the difference in days
+    const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    // Output the result
+    showToast(daysLeft + ' days left', 'text-bg-success');
+
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+    });
+});
 /* Set rates + misc */
 var fadeTime = 300;
 
@@ -148,8 +184,8 @@ function handleRSVP(event) {
         form.hide();
         // Show loader
         loader.show();
-        email = $('#inputEmail').val();
-        orderName = $('#inputName').val();
+        let email = $('#inputEmail').val();
+        let orderName = $('#inputName').val();
         $.ajax({
             method: 'POST',
             url: 'https://jt5jm66qaa.execute-api.ap-southeast-2.amazonaws.com/prod/RSVP',
@@ -164,6 +200,13 @@ function handleRSVP(event) {
             }),
             contentType: 'application/json',
             success: function (response) {
+                const inputAdults = parseInt($('#inputAdults').val(), 10) || 0;
+                const inputKids = parseInt($('#inputKids').val(), 10) || 0;
+                const inputSeniors = parseInt($('#inputSeniors').val(), 10) || 0;
+                bookedSeats = inputAdults + inputKids + inputSeniors;
+                total += bookedSeats;
+                $('#seatsButton').html(total + " Booked");
+
                 loader.hide();
                 thankyou.show();
                 $('#checkoutName').val(orderName);
@@ -652,7 +695,7 @@ function handleQuiz(event) {
 }
 
 
-$('.downloadCalendar').on('click', function() {
+$('.downloadCalendar').on('click', function () {
     // Calendar event details
     var calendarEvent = {
         title: "A Fireplace Musical Event",

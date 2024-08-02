@@ -2,6 +2,10 @@ body {
   background-color: #F6F4EC;
 }
 
+#seatsButton {
+  border-radius: 24px;
+  padding: 0px 20px 0px 20px;
+}
 .welcome-content {
   position: relative;
   z-index: 2;
@@ -20,6 +24,10 @@ body {
   width: 35px; /* Adjust size as needed */
   height: auto;
   margin-right: 5px;
+}
+
+.navbar-brand:hover{
+  color: #BF4408;
 }
 
 .navbar-nav .nav-link {
@@ -600,6 +608,13 @@ button {
 .round-btn {
   border-radius: 24px;
   padding: 8px 24px 8px 24px;
+}
+
+#seatsButton{
+  background-color: #be8d54;
+}
+#seatsButton:hover{
+  background-color: #BF4408;
 }
 
 .noOfProducts:hover {

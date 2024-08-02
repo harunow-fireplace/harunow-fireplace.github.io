@@ -38,8 +38,14 @@
     </div>
     <nav class="navbar sticky-top navbar-expand-lg secondary-background fs-6 fw-normal">
         <div class="container-fluid">
-            <a class="navbar-brand heading-font fs-4 nav-logo" href="#"><img class="logo" src="images/logo.png"
+            <a class="navbar-brand heading-font fs-4 nav-logo mr-5" href="#"><img class="logo" src="images/logo.png"
                     alt="Fireplace logo" />FIREPLACE</a>
+            <button id="seatsButton" class="btn primary-background btn-sm py-1 d-flex align-items-center ms-5"
+                type="button">
+                <div class="spinner-grow spinner-grow-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </button>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
                 aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,10 +53,10 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mb-2 mb-lg-0 ">
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#prices">Prices</a>
+                        <a class="nav-link" href="#trailer">Trailer</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#bookingForm">Registration</a>
+                        <a class="nav-link" href="#prices">Registration</a>
                     </li>
                     <li class="nav-item px-2 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -72,7 +78,7 @@
                         </a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#students">Students</a>
+                        <a class="nav-link" href="#students">For Students</a>
                     </li>
                     <li class="nav-item px-2 nav-color">
                         <a class="nav-link nav-color" aria-current="page" href="#gallery">Gallery</a>
@@ -80,6 +86,7 @@
 
                 </ul>
             </div>
+            
         </div>
     </nav>
 
@@ -101,9 +108,7 @@
                     Fireplace's 10th Anniversary
                     Musical Event</h1>
                 <p class="fs-5 mb-4 text-white text-center" data-aos="fade-up" data-aos-delay="200">Join us as we
-                    celebrate a decade
-                    of
-                    milestones.</p>
+                    celebrate a decade’s journey</p>
                 <h2 class="col text-white fw-bold lh-1 mb-3 text-center" data-aos="fade-up" data-aos-delay="400">29
                     Nov 2024 <span class="fw-normal fs-4">7pm-10pm</span></h2>
 
@@ -126,7 +131,7 @@
 
                 <div class="row text-center" data-aos="fade-up" data-aos-delay="1000">
                     <div class="col">
-                        <a href="#bookingForm" class="btn primary-background round-btn">Register Below</a>
+                        <a href="#prices" class="btn primary-background round-btn">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -134,8 +139,15 @@
 
     </section>
 
+    <section id="trailer">
+        <div class="container py-5 text-center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MegdQWRsEzw?si=s7ri9DY4xGdBFQOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-    <section id="prices" class="light-background text-center py-5">
+        </div>
+    </section>
+
+
+    <section id="prices" class="light-background text-center">
         <div class="container py-5">
             <h1 class="display-6 fw-bold heading-font">Ticket Prices</h1>
             <p class="col-lg-8 mx-auto lead fw-normal pb-3">
@@ -150,7 +162,7 @@
                         </div>
                         <div class="card-body">
                             <h3 class="card-title pricing-card-title">RM10<small
-                                    class="text-body-secondary fw-light">/Kid</small></h3>
+                                    class="text-body-secondary fw-light">/child</small></h3>
                             <ul class="list-unstyled mt-3 mb-0">
                                 <li>12 and Below</li>
                             </ul>
@@ -214,7 +226,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <label for="inputKids" class="form-label">How many kids?</label>
+                    <label for="inputKids" class="form-label">How many children?</label>
                     <input type="number" class="form-control" id="inputKids" placeholder="0" required>
                     <div class="invalid-feedback">
                         Please provide the number of kids
@@ -235,7 +247,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="reminderCheck">
                         <label class="form-check-label" for="reminderCheck">
-                            I would like to receive a reminder 1 week before the event by email
+                            I would like to receive a reminder 1 week before the event by email.
                         </label>
                     </div>
                 </div>
@@ -246,8 +258,7 @@
                             I accept the terms
                         </label>
                         <p>Thank you for registering!<br>
-                            We respect your privacy, therefore information provided is confidential and only used for
-                            booking purposes</p>
+                            We respect your privacy; information provided will remain confidential and used for booking purposes only.</p>
                     </div>
                 </div>
                 <div class="col-12">
@@ -568,12 +579,12 @@
 
     <section id="students" class="accent py-5">
         <div class="container">
-            <h1 class="display-6 fw-bold heading-font text-center">Students</h1>
+            <h1 class="display-6 fw-bold heading-font text-center">For Students</h1>
             <p class="lead fw-normal mb-5 text-center">
                 We prepared a special throwback side quest for our present and former students
             </p>
             <div id="quiz" class="col-sm-12 col-md-8 mx-auto p-5 bg-light bg-gradient rounded-3">
-                <p class="fs-4">How well do you know Fireplace</hp>
+                <p class="fs-4">How well do you know Fireplace?</hp>
 
                 <div class="progress mt-3 mb-5">
                     <div id="progressBar" class="progress-bar bg-info progress-bar-striped progress-bar-animated"
@@ -1183,7 +1194,7 @@
         <div class="container pt-3">
             <h1 class="display-6 fw-bold heading-font">Explore our gallery</h1>
             <p class="col-lg-7 mx-auto lead fw-normal pb-3">
-                Look forward to enjoying contributions from our various sponsors and student creations.
+                Look forward to enjoying contributions from our various sponsors and student creations. View some samples:
             </p>
             <div class="contain">
                 <button id="scrollLeft" class="chevron chevron-left">&lt;</button>
