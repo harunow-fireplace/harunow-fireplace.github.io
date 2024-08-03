@@ -325,10 +325,10 @@ function handlePreOrder(event) {
 }
 //Shirt, cap, mug, bag , 30, 40, 20
 let prices = {
-    "T-shirt": 50,
-    "Cap": 30,
-    "Mug": 40,
-    "Tote-bag": 20
+    "T-shirt": 40,
+    "Cap": 25,
+    "Mug": 20,
+    "Tote-bag": 15
 }
 
 function addToCart() {
