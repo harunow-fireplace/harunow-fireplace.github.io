@@ -475,7 +475,7 @@ button {
 }
 
 .section-products #product-1 .part-1::before {
-  background: url('../event/images/shirt-red-back.png') no-repeat center;
+  background: url('../event/images/iam-shirt.png') no-repeat center;
   background-size: cover;
   transition: all 0.3s;
 }
@@ -483,13 +483,13 @@ button {
   background-color: #ccc;
 
 }
-.section-products .single-product .part-1 ul li#shirt-red-back a {
-  background: url('../event/images/shirt-red-back.png') no-repeat center center;
+.section-products .single-product .part-1 ul li#iam-shirt a {
+  background: url('../event/images/iam-shirt.png') no-repeat center center;
   background-size: cover;
 }
 
-.section-products .single-product .part-1 ul li#shirt-red-front a {
-  background: url('../event/images/shirt-red-front.png') no-repeat center center;
+.section-products .single-product .part-1 ul li#more-peace-more-hope-shirt a {
+  background: url('../event/images/more-peace-more-hope-shirt.png') no-repeat center center;
   background-size: cover;
 }
 
@@ -596,8 +596,8 @@ button {
   border: 2px solid #be8d54;
   border-radius: 50%;
 }
-.color-picker .red {
-  background-color: #892021;
+.color-picker .white {
+  background-color: #fff;
 }
 .color-picker .blue {
   background-color: #1d315e;
