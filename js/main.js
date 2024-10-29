@@ -516,7 +516,13 @@ Harunow.map = Harunow.map || {};
             // Convert the canvas content to a Blob
             let resizedFile = await new Promise((resolve) => {
                 canvas.toBlob((blob) => {
-                    const resizedFileName = createUuid() + '.' + fileType.split('/')[1];
+                    let resizedFileName;
+                    if (multiple) {
+                        resizedFileName = title + "/" + createUuid() + '.' + fileType.split('/')[1];
+
+                    } else {
+                        resizedFileName = createUuid() + '.' + fileType.split('/')[1];
+                    }
                     const resizedFile = new File([blob], resizedFileName, { type: fileType });
                     resolve(resizedFile);
                 }, fileType, 0.8);

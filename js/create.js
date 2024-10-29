@@ -558,11 +558,18 @@ Harunow.map = Harunow.map || {};
     
         // Convert the canvas content to a Blob
         try {
-            const resizedFile = await new Promise((resolve) => {
+            let resizedFile = await new Promise((resolve) => {
                 canvas.toBlob((blob) => {
-                    const resizedFile = new File([blob], filename, { type: fileType });
+                    let resizedFileName;
+                    if (multiple) {
+                        resizedFileName = title + "/" + createUuid() + '.' + fileType.split('/')[1];
+
+                    } else {
+                        resizedFileName = createUuid() + '.' + fileType.split('/')[1];
+                    }
+                    const resizedFile = new File([blob], resizedFileName, { type: fileType });
                     resolve(resizedFile);
-                }, fileType, 0.8); // Adjust the quality as needed
+                }, fileType, 0.8);
             });
     
             // Upload the resized file to S3
