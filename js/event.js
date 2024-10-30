@@ -328,7 +328,7 @@ let prices = {
     "T-shirt": 40,
     "Cap": 25,
     "Mug": 20,
-    "Tote-bag": 15
+    "Tote-bag": 20
 }
 
 function addToCart() {
