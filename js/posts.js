@@ -65,6 +65,7 @@ Harunow.map = Harunow.map || {};
             },
             contentType: 'application/json',
             success: function (response) {
+                console.log(response);
                 userType = response.user.userType;
                 if (!response.user.isApproved) {
                     //loadSetup("waiting-request", `Hmmm, looks like you need to wait for your school to approve your request`);
@@ -330,7 +331,8 @@ Harunow.map = Harunow.map || {};
                         userType: userType
                     },
                     images: [],
-                    private: privatePost
+                    private: privatePost,
+                    published: true,
                 };
 
                 // Get the image element from fileDisplay

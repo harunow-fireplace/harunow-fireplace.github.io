@@ -392,7 +392,8 @@ Harunow.map = Harunow.map || {};
                     userType: 'student'
                 },
                 images: [],
-                private: privatePost
+                private: privatePost,
+                published: true,
             };
 
             // Get the image element from fileDisplay
