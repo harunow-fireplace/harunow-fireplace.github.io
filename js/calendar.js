@@ -15,6 +15,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July",
 
 let h;
 function renderCalendar(holidays) {
+
     h = holidays;
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
         lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
@@ -29,15 +30,16 @@ function renderCalendar(holidays) {
         let j = lastDateofLastMonth - i + 1
         let aDate = j + "/" + (m - 1) + "/" + currYear;
 
-        if (holidays[aDate] && holidays[aDate][0] == 1) {
+        if (holidays[aDate] && holidays[aDate][1] == 1) {
+
             isActive = "public";
-        } else if (holidays[aDate] && holidays[aDate][0] == 2) {
+        } else if (holidays[aDate] && holidays[aDate][1] == 2) {
             isActive = "holiday";
-        } else if (holidays[aDate] && holidays[aDate][0] == 3) {
+        } else if (holidays[aDate] && holidays[aDate][1] == 3) {
             isActive = "changeable";
-        } else if (holidays[aDate] && holidays[aDate][0] == 4) {
+        } else if (holidays[aDate] && holidays[aDate][1] == 4) {
             isActive = "exam";
-        } else if (holidays[aDate] && holidays[aDate][0] == 5) {
+        } else if (holidays[aDate] && holidays[aDate][1] == 5) {
             isActive = "familynight";
         } else {
             isActive = "inactive";
@@ -53,31 +55,31 @@ function renderCalendar(holidays) {
 
         let isActive = "";
 
-        if (holidays[isDate] && holidays[isDate][0] == 1) {
+        if (holidays[isDate] && holidays[isDate][1] == 1) {
             isActive = "public";
             liTag += `<button class="btn cal-btn ${isActive}" type="button" ${holidays[isDate][1] ? `data-toggle="tooltip" data-placement="right" title="${holidays[isDate][1]}" data-value="${isDate}"` : "" }>${i}</button>`;
 
             //liTag += `<li class="${isActive}" data-toggle="tooltip" data-placement="right" title="${holidays[isDate]}" data-value="${isDate}">${i}</li>`;
         }
-        else if (holidays[isDate] && holidays[isDate][0] == 2) {
+        else if (holidays[isDate] && holidays[isDate][1] == 2) {
             isActive = "holiday";
             liTag += `<button class="btn cal-btn ${isActive}" type="button">${i}</button>`;
 
             //liTag += `<li class="${isActive}" data-toggle="tooltip" data-placement="right" title="${holidays[isDate]}" data-value="${isDate}">${i}</li>`;
         }
-        else if (holidays[isDate] && holidays[isDate][0] == 3) {
+        else if (holidays[isDate] && holidays[isDate][1] == 3) {
             isActive = "changeable";
             liTag += `<button class="btn cal-btn ${isActive}" type="button">${i}</button>`;
 
             //liTag += `<li class="${isActive}" data-toggle="tooltip" data-placement="right" title="${holidays[isDate]}" data-value="${isDate}">${i}</li>`;
         }
-        else if (holidays[isDate] && holidays[isDate][0] == 4) {
+        else if (holidays[isDate] && holidays[isDate][1] == 4) {
             isActive = "exam";
             liTag += `<button class="btn cal-btn ${isActive}" type="button">${i}</button>`;
 
             //liTag += `<li class="${isActive}" data-toggle="tooltip" data-placement="right" title="${holidays[isDate]}" data-value="${isDate}">${i}</li>`;
         }
-        else if (holidays[isDate] && holidays[isDate][0] == 5) {
+        else if (holidays[isDate] && holidays[isDate][1] == 5) {
             isActive = "familynight";
             liTag += `<button class="btn cal-btn ${isActive}" type="button">${i}</button>`;
 
