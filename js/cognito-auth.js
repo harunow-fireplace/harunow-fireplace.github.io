@@ -176,7 +176,7 @@ var Harunow = window.Harunow || {};
     var onSuccess = function registerSuccess(result) {
         var cognitoUser = result.user;
         //var confirmation = "Registration successful. Please check your email inbox or spam folder for your verification. <a href='harunow.com/login/'>Go to login</a>";
-        addUserToSchool(cognitoUser.getUsername(), session.getIdToken().payload.sub, groupKey, userType);
+        addUserToSchool(cognitoUser.getUsername(), cognitoUser.getIdToken().payload.sub, groupKey, userType);
     };
 
     var onFailure = function registerFailure(err) {
