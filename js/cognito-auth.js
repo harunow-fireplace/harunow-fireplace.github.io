@@ -175,8 +175,9 @@ var Harunow = window.Harunow || {};
 
     var onSuccess = function registerSuccess(result) {
         var cognitoUser = result.user;
+
         //var confirmation = "Registration successful. Please check your email inbox or spam folder for your verification. <a href='harunow.com/login/'>Go to login</a>";
-        addUserToSchool(cognitoUser.getUsername(), cognitoUser.getIdToken().payload.sub, groupKey, userType);
+        addUserToSchool(cognitoUser.getUsername(), groupKey, userType);
     };
 
     var onFailure = function registerFailure(err) {
@@ -214,7 +215,7 @@ var Harunow = window.Harunow || {};
         });
     }
 
-    function addUserToSchool(username, userId, key, userType) {
+    function addUserToSchool(username, key, userType) {
 
         $.ajax({
             method: 'POST',
@@ -222,8 +223,7 @@ var Harunow = window.Harunow || {};
             data: JSON.stringify({
                 username: username.toLowerCase(),
                 groupKey: key.toLowerCase(),
-                userType: userType,
-                userId: userId
+                userType: userType
             }),
             contentType: 'application/json',
             success: function (response) {
